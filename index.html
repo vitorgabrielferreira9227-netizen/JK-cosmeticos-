@@ -7,6 +7,51 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
     <style>
+
+        #carrinho {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: white;
+    width: 280px;
+    padding: 15px;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    font-size: 0.9rem;
+    z-index: 999;
+}
+
+#carrinho h3 {
+    margin-top: 0;
+}
+
+#lista-carrinho {
+    list-style: none;
+    padding: 0;
+    max-height: 150px;
+    overflow-y: auto;
+}
+
+#lista-carrinho li {
+    margin-bottom: 5px;
+}
+
+.total {
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+#finalizar {
+    display: block;
+    background: #25d366;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    border-radius: 10px;
+    text-decoration: none;
+    margin-top: 10px;
+}
+
         :root {
             --boticario: #3a5a40;
             --eudora: #4a1533;
@@ -167,6 +212,15 @@
 </head>
 <body>
 
+    <!-- CARRINHO -->
+<div id="carrinho">
+  <h3>🛒 Meu Carrinho</h3>
+  <ul id="lista-carrinho"></ul>
+  <p class="total">Total: R$ <span id="total">0.00</span></p>
+  <a id="finalizar" href="#" target="_blank">Finalizar no WhatsApp</a>
+</div>
+
+
     <header>
         <a href="https://drive.google.com/file/d/1KX5CAUKiuupJO9fRhOoJ7aP_8KeFvIM6/view?usp=drive_link" class="btn-catalogo boticario">
             <i class="fas fa-leaf"></i> Catálogo Boticário
@@ -194,8 +248,10 @@
             </div>
             <div class="produto-nome">Loção Desodorante Hidratante Cuide-Se Bem Doçura Na Pessegura 400Ml</div>
             <div class="preco">R$ 74,90</div>
-            <a href="https://wa.me/SEUNUMERO" class="btn-whats">
-                <i class="fab fa-whatsapp"></i> Eu quero este
+           <button class="btn-whats" onclick="adicionarCarrinho('Loção Desodorante Hidratante Cuide-Se Bem Doçura Na Pessegura 400Ml', 74.90)">
+    <i class="fas fa-cart-plus"></i> Adicionar ao carrinho
+</button>
+
             </a>
         </div>
           
@@ -207,8 +263,10 @@
 
             <div class="produto-nome">Boticollection Portinari Desodorante Colônia 100Ml</div>
             <div class="preco">R$ 135,90</div>
-            <a href="https://wa.me/SEUNUMERO" class="btn-whats">
-                <i class="fab fa-whatsapp"></i> Eu quero este
+            <button class="btn-whats" onclick="adicionarCarrinho('Boticollection Portinari Desodorante Colônia 100Ml', 135.90)">
+    <i class="fas fa-cart-plus"></i> Adicionar ao carrinho
+</button>
+
             </a>
         </div>
 
@@ -219,8 +277,10 @@
             </div>
             <div class="produto-nome">Eudora H Energy Desodorante Colônia 100ml</div>
             <div class="preco">R$ 114,90</div>
-            <a href="https://wa.me/SEUNUMERO" class="btn-whats">
-                <i class="fab fa-whatsapp"></i> Eu quero este
+          <button class="btn-whats" onclick="adicionarCarrinho('Eudora H Energy Desodorante Colônia 100ml', 114.90)">
+    <i class="fas fa-cart-plus"></i> Adicionar ao carrinho
+</button>
+
             </a>
           </div>   
 
@@ -231,8 +291,10 @@
             </div>
             <div class="produto-nome">Quasar Vision Desodorante Colônia 100ml</div>
             <div class="preco">R$  174,90</div>
-            <a href="https://wa.me/SEUNUMERO" class="btn-whats">
-                <i class="fab fa-whatsapp"></i> Eu quero este
+           <button class="btn-whats" onclick="adicionarCarrinho('Quasar Vision Desodorante Colônia 100ml', 174.90)">
+    <i class="fas fa-cart-plus"></i> Adicionar ao carrinho
+</button>
+
             </a>
           </div>
 
@@ -243,8 +305,10 @@
             </div>
             <div class="produto-nome">Quasar Blue Desodorante Colônia 100ml</div>
             <div class="preco">R$ 174,90</div>
-            <a href="https://wa.me/SEUNUMERO" class="btn-whats">
-                <i class="fab fa-whatsapp"></i> Eu quero este
+           <button class="btn-whats" onclick="adicionarCarrinho('Quasar Blue Desodorante Colônia 100ml', 174.90)">
+    <i class="fas fa-cart-plus"></i> Adicionar ao carrinho
+</button>
+
             </a>
         </div>
          
@@ -254,9 +318,10 @@
                 <img src="https://res.cloudinary.com/beleza-na-web/image/upload/w_1500,f_auto,fl_progressive,q_auto:best/v1/imagens/products/B01004/FLORATTA-DES-COL-MY-BLUE-75ml-B01004_.jpg" alt="Perfume">
             </div>
             <div class="produto-nome">Floratta My Blue Desodorante Colônia 75ml</div>
-            <div class="preco">R$ 164,90</div>
-            <a href="https://wa.me/SEUNUMERO" class="btn-whats">
-                <i class="fab fa-whatsapp"></i> Eu quero este
+            <div class="preco">R$  164,90</div>
+           <button class="btn-whats" onclick="adicionarCarrinho('Floratta My Blue Desodorante Colônia 75ml', 164.90)">
+    <i class="fas fa-cart-plus"></i> Adicionar ao carrinho
+</button>
             </a>
         </div>
 
@@ -267,8 +332,10 @@
             </div>
             <div class="produto-nome">Quasar Next Colônia 50Ml</div>
             <div class="preco">R$  99,90</div>
-            <a href="https://wa.me/SEUNUMERO" class="btn-whats">
-                <i class="fab fa-whatsapp"></i> Eu quero este
+            <button class="btn-whats" onclick="adicionarCarrinho('Quasar Next Colônia 50Ml', 99.90)">
+    <i class="fas fa-cart-plus"></i> Adicionar ao carrinho
+</button>
+
             </a>
         </div>
 
@@ -277,12 +344,12 @@
             <div class="img-box">
                 <img src="https://res.cloudinary.com/beleza-na-web/image/upload/w_1500,f_auto,fl_progressive,q_auto:best/v1/imagens/product/B51500/f3858df9-73ca-477e-8cf5-efa9fe001949-bot-51500-sophie-candy-colonia-frontal-01.jpg" alt="Perfume">
             </div>
-            <div class="produto-nome">
-Colônia Infantil Sophie Candy 100Ml
-</div>
+            <div class="produto-nome">Colônia Infantil Sophie Candy 100Ml</div>
             <div class="preco">R$ 83,89</div>
-            <a href="https://wa.me/SEUNUMERO" class="btn-whats">
-                <i class="fab fa-whatsapp"></i> Eu quero este
+            <button class="btn-whats" onclick="adicionarCarrinho('Colônia Infantil Sophie Candy 100Ml', 83.89)">
+    <i class="fas fa-cart-plus"></i> Adicionar ao carrinho
+</button>
+
             </a>
         </div>
           
@@ -293,8 +360,10 @@ Colônia Infantil Sophie Candy 100Ml
             </div>
             <div class="produto-nome"> Body Spray Desodorante Arbo 100Ml</div>
             <div class="preco">R$34,90</div>
-            <a href="https://wa.me/SEUNUMERO" class="btn-whats">
-                <i class="fab fa-whatsapp"></i> Eu quero este
+           <button class="btn-whats" onclick="adicionarCarrinho('Body Spray Desodorante Arbo 100Ml', 34.90)">
+    <i class="fas fa-cart-plus"></i> Adicionar ao carrinho
+</button>
+
             </a>
         </div>
 
@@ -305,8 +374,10 @@ Colônia Infantil Sophie Candy 100Ml
            </div>
            <div class="produto-nome">Desodorante Body Spray Eudora 100Ml</div>
            <div class="preco">R$   44,99 </div>
-           <a href="https://wa.me/SEUNUMERO" class="btn-whats">
-               <i class="fab fa-whatsapp"></i> Eu quero este
+          <button class="btn-whats" onclick="adicionarCarrinho('Desodorante Body Spray Eudora 100Ml', 44.99)">
+    <i class="fas fa-cart-plus"></i> Adicionar ao carrinho
+</button>
+
            </a>
        </div>
 
@@ -317,8 +388,10 @@ Colônia Infantil Sophie Candy 100Ml
            </div>
            <div class="produto-nome">Desodorante Antitranspirante Aerosol Coffee Woman Seduction 75G/125Ml</div>
            <div class="preco">R$  27,90  </div>
-           <a href="https://wa.me/SEUNUMERO" class="btn-whats">
-               <i class="fab fa-whatsapp"></i> Eu quero este
+          <button class="btn-whats" onclick="adicionarCarrinho('Desodorante Antitranspirante Aerosol Coffee Woman Seduction 75G/125Ml', 27.90)">
+    <i class="fas fa-cart-plus"></i> Adicionar ao carrinho
+</button>
+
            </a>
        </div>
 
@@ -329,8 +402,10 @@ Colônia Infantil Sophie Candy 100Ml
            </div>
            <div class="produto-nome">Loção Hidratante Desodorante Corporal Natura SPA Ameixa 200Ml</div>
            <div class="preco">R$   68,90  </div>
-           <a href="https://wa.me/SEUNUMERO" class="btn-whats">
-               <i class="fab fa-whatsapp"></i> Eu quero este
+        <button class="btn-whats" onclick="adicionarCarrinho('Loção Hidratante Desodorante Corporal Natura SPA Ameixa 200Ml', 68.90)">
+    <i class="fas fa-cart-plus"></i> Adicionar ao carrinho
+</button>
+
            </a>
        </div>
 
@@ -341,8 +416,10 @@ Colônia Infantil Sophie Candy 100Ml
            </div>
            <div class="produto-nome">Sabonete Vegetal Em Barra Perfumado Rosa Absoluta 4x80G</div>
            <div class="preco">R$  28,90  </div>
-           <a href="https://wa.me/SEUNUMERO" class="btn-whats">
-               <i class="fab fa-whatsapp"></i> Eu quero este
+           <button class="btn-whats" onclick="adicionarCarrinho('Sabonete Vegetal Em Barra Perfumado Rosa Absoluta 4x80G', 28.90)">
+    <i class="fas fa-cart-plus"></i> Adicionar ao carrinho
+</button>
+
            </a>
        </div>
 
@@ -353,8 +430,10 @@ Colônia Infantil Sophie Candy 100Ml
            </div>
            <div class="produto-nome">Sabonete Vegetal Em Barra Cereja Amêndoas 4x80G</div>
            <div class="preco">R$   32,99  </div>
-           <a href="https://wa.me/SEUNUMERO" class="btn-whats">
-               <i class="fab fa-whatsapp"></i> Eu quero este
+           <button class="btn-whats" onclick="adicionarCarrinho('Sabonete Vegetal Em Barra Cereja Amêndoas 4x80G', 32.99)">
+    <i class="fas fa-cart-plus"></i> Adicionar ao carrinho
+</button>
+
            </a>
        </div>
 
@@ -365,8 +444,10 @@ Colônia Infantil Sophie Candy 100Ml
            </div>
            <div class="produto-nome">Sabonetes Cuide-Se Bem Rosa E Algodão 4X80G Cada</div>
            <div class="preco">R$ 26,90  </div>
-           <a href="https://wa.me/SEUNUMERO" class="btn-whats">
-               <i class="fab fa-whatsapp"></i> Eu quero este
+           <button class="btn-whats" onclick="adicionarCarrinho('Sabonetes Cuide-Se Bem Rosa E Algodão 4X80G Cada', 26.90)">
+    <i class="fas fa-cart-plus"></i> Adicionar ao carrinho
+</button>
+
            </a>
        </div>
 
@@ -377,9 +458,10 @@ Colônia Infantil Sophie Candy 100Ml
            </div>
            <div class="produto-nome">Boticoll Sab Barr Cpo Perfumado V3 5X80G</div>
            <div class="preco">R$ 54,90  </div>
-           <a href="https://wa.me/SEUNUMERO" class="btn-whats">
-               <i class="fab fa-whatsapp"></i> Eu quero este
-           </a>
+           <button class="btn-whats" onclick="adicionarCarrinho('Boticoll Sab Barr Cpo Perfumado V3 5X80G', 54.90)">
+    <i class="fas fa-cart-plus"></i> Adicionar ao carrinho
+        </button>
+        </a>
        </div>
 
        <div class="produto-card">
@@ -389,8 +471,10 @@ Colônia Infantil Sophie Candy 100Ml
            </div>
            <div class="produto-nome">Shampoo Siàge Men Estimula O Crescimento 250Ml</div>
            <div class="preco">R$  41,99 </div>
-           <a href="https://wa.me/SEUNUMERO" class="btn-whats">
-               <i class="fab fa-whatsapp"></i> Eu quero este
+           <button class="btn-whats" onclick="adicionarCarrinho('Shampoo Siàge Men Estimula O Crescimento 250Ml', 41.99)">
+    <i class="fas fa-cart-plus"></i> Adicionar ao carrinho
+</button>
+
            </a>
        </div>
 
@@ -401,20 +485,23 @@ Colônia Infantil Sophie Candy 100Ml
            </div>
            <div class="produto-nome">Refil Creme Hidratante Desodorante Corporal Instance Frutas Vermelhas 350Ml</div>
            <div class="preco">R$  32,90 </div>
-           <a href="https://wa.me/SEUNUMERO" class="btn-whats">
-               <i class="fab fa-whatsapp"></i> Eu quero este
-           </a>
-       </div>
+           <button class="btn-whats" onclick="adicionarCarrinho('Refil Creme Hidratante Desodorante Corporal Instance Frutas Vermelhas 350Ml', 32.90)">
+           <i class="fas fa-cart-plus"></i> Adicionar ao carrinho
+       </button>
+        
+              </a>
 
-       <div class="produto-card">
+        </div><div class="produto-card">
           <span class="marca-tag">Eudora</span>
           <div class="img-box">
               <img src="https://res.cloudinary.com/beleza-na-web/image/upload/w_1500,f_auto,fl_progressive,q_auto:best/v1/imagens/product/E87257/a8880ea4-a49e-4bfe-a41c-49294244d380-e87257-instance-frutas-vermelhas-sab-liquido-400ml-1.jpg" alt="Perfume">
           </div>
           <div class="produto-nome">Eudora Instance Frutas Vermelhas - Sabonetelíquido Perfumado 400Ml</div>
           <div class="preco">R$ 49,99  </div>
-          <a href="https://wa.me/SEUNUMERO" class="btn-whats">
-              <i class="fab fa-whatsapp"></i> Eu quero este
+          <button class="btn-whats" onclick="adicionarCarrinho('Eudora Instance Frutas Vermelhas - Sabonetelíquido Perfumado 400Ml', 49.99)">
+    <i class="fas fa-cart-plus"></i> Adicionar ao carrinho
+         </button>
+
           </a>
       </div>
 
@@ -425,8 +512,10 @@ Colônia Infantil Sophie Candy 100Ml
           </div>
           <div class="produto-nome">Óleo Em Creme Siàge Nutri Acid.Complex 100Ml</div>
           <div class="preco">R$ 67,99 </div>
-          <a href="https://wa.me/SEUNUMERO" class="btn-whats">
-              <i class="fab fa-whatsapp"></i> Eu quero este
+         <button class="btn-whats" onclick="adicionarCarrinho('Óleo Em Creme Siàge Nutri Acid.Complex 100Ml', 67.99)">
+    <i class="fas fa-cart-plus"></i> Adicionar ao carrinho
+        </button>
+
           </a>
       </div>
 
@@ -437,8 +526,10 @@ Colônia Infantil Sophie Candy 100Ml
           </div>
           <div class="produto-nome">Máscara Capilar Concentrada Siàge Nutri Acid.Complex 250G</div>
           <div class="preco">R$  69,99 </div>
-          <a href="https://wa.me/SEUNUMERO" class="btn-whats">
-              <i class="fab fa-whatsapp"></i> Eu quero este
+         <button class="btn-whats" onclick="adicionarCarrinho('Máscara Capilar Concentrada Siàge Nutri Acid.Complex 250G', 69.99)">
+    <i class="fas fa-cart-plus"></i> Adicionar ao carrinho
+</button>
+
           </a>
       </div>
 
@@ -449,8 +540,10 @@ Colônia Infantil Sophie Candy 100Ml
           </div>
           <div class="produto-nome">Shampoo Siàge Cauterização Lisos 250Ml</div>
           <div class="preco">R$ 47,99</div>
-          <a href="https://wa.me/SEUNUMERO" class="btn-whats">
-              <i class="fab fa-whatsapp"></i> Eu quero este
+         <button class="btn-whats" onclick="adicionarCarrinho('Shampoo Siàge Cauterização Lisos 250Ml', 47.99)">
+    <i class="fas fa-cart-plus"></i> Adicionar ao carrinho
+</button>
+
           </a>
       </div>
 
@@ -461,8 +554,11 @@ Colônia Infantil Sophie Candy 100Ml
           </div>
           <div class="produto-nome">Condicionador Siàge Cauterização Lisos 200Ml</div>
           <div class="preco">R$ 49,99</div>
-          <a href="https://wa.me/SEUNUMERO" class="btn-whats">
-              <i class="fab fa-whatsapp"></i> Eu quero este
+         
+              <button class="btn-whats" onclick="adicionarCarrinho('Condicionador Siàge Cauterização Lisos 200Ml', 49.99)">
+    <i class="fas fa-cart-plus"></i> Adicionar ao carrinho
+</button>
+
           </a>
       </div>
  </div>
@@ -472,4 +568,39 @@ Colônia Infantil Sophie Candy 100Ml
     </footer>
 
 </body>
+<script>
+let carrinho = [];
+let total = 0;
+
+function adicionarCarrinho(nome, preco) {
+    carrinho.push({ nome, preco });
+    total += preco;
+    atualizarCarrinho();
+}
+
+function atualizarCarrinho() {
+    const lista = document.getElementById("lista-carrinho");
+    const totalSpan = document.getElementById("total");
+    const finalizar = document.getElementById("finalizar");
+
+    lista.innerHTML = "";
+
+    carrinho.forEach(item => {
+        const li = document.createElement("li");
+        li.textContent = `${item.nome} - R$ ${item.preco.toFixed(2)}`;
+        lista.appendChild(li);
+    });
+
+    totalSpan.textContent = total.toFixed(2);
+
+    let mensagem = "Oi! Quero comprar:%0A";
+    carrinho.forEach(item => {
+        mensagem += `- ${item.nome} (R$ ${item.preco.toFixed(2)})%0A`;
+    });
+    mensagem += `%0ATotal: R$ ${total.toFixed(2)}`;
+
+    finalizar.href = "https://wa.me/5567999999999?text=" + mensagem;
+}
+</script>
+
 </html>
