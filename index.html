@@ -8,23 +8,8 @@
     
     <style> 
         
-    @media (max-width: 768px) {
-    #carrinho {
-        left: 0;
-        right: 0;
-        bottom: 0;
-        width: 100%;
-        border-radius: 20px 20px 0 0;
-        box-shadow: 0 -5px 20px rgba(0,0,0,0.2);
-    }
-
-    body {
-        padding-bottom: 220px; /* espaço para não tampar os produtos */
-    }
-}
-
-
-        #carrinho {
+    /* CARRINHO PADRÃO (PC) */
+#carrinho {
     position: fixed;
     bottom: 20px;
     right: 20px;
@@ -36,37 +21,26 @@
     font-size: 0.9rem;
     z-index: 999;
 }
+@media (max-width: 768px) {
+    #carrinho {
+        left: 0;
+        right: 0;
+        bottom: 0;
+        width: 100%;
+        border-radius: 20px 20px 0 0;
+        padding: 12px 15px;
+    }
 
-#carrinho h3 {
-    margin-top: 0;
+    #lista-carrinho {
+        max-height: 80px;
+        overflow-y: auto;
+    }
+
+    body {
+        padding-bottom: 200px; /* evita o carrinho tampar produtos */
+    }
 }
 
-#lista-carrinho {
-    list-style: none;
-    padding: 0;
-    max-height: 150px;
-    overflow-y: auto;
-}
-
-#lista-carrinho li {
-    margin-bottom: 5px;
-}
-
-.total {
-    font-weight: bold;
-    margin-top: 10px;
-}
-
-#finalizar {
-    display: block;
-    background: #25d366;
-    color: white;
-    text-align: center;
-    padding: 10px;
-    border-radius: 10px;
-    text-decoration: none;
-    margin-top: 10px;
-}
 
         :root {
             --boticario: #3a5a40;
