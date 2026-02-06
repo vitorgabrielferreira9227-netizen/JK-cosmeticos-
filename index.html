@@ -6,7 +6,22 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
-    <style>
+    <style> 
+    @media (max-width: 768px) {
+    #carrinho {
+        left: 0;
+        right: 0;
+        bottom: 0;
+        width: 100%;
+        border-radius: 20px 20px 0 0;
+        box-shadow: 0 -5px 20px rgba(0,0,0,0.2);
+    }
+
+    body {
+        padding-bottom: 220px; /* espaço para não tampar os produtos */
+    }
+}
+
 
         #carrinho {
     position: fixed;
@@ -437,7 +452,32 @@
            </a>
        </div>
 
-       
+      <div class="produto-card">
+           <span class="marca-tag">o Boticário</span>
+           <div class="img-box">
+               <img src="https://res.cloudinary.com/beleza-na-web/image/upload/w_1500,f_auto,fl_progressive,q_auto:best/v1/imagens/product/B51165/0da6e288-5796-4f53-b6d3-b81e37e4a1e3-bot-51165-frontal.jpg" alt="Perfume">
+           </div>
+           <div class="produto-nome">Sabonetes Cuide-Se Bem Rosa E Algodão 4X80G Cada</div>
+           <div class="preco">R$ 26,90  </div>
+           <button class="btn-whats" onclick="adicionarCarrinho('Sabonetes Cuide-Se Bem Rosa E Algodão 4X80G Cada', 26.90)">
+    <i class="fas fa-cart-plus"></i> Adicionar ao carrinho
+</button>
+
+           </a>
+       </div>
+
+       <div class="produto-card">
+           <span class="marca-tag">o Boticário</span>
+           <div class="img-box">
+               <img src="https://sgi.e-boticario.com.br/Paginas/Imagens/Produtos/87921GG.jpg" alt="Perfume">
+           </div>
+           <div class="produto-nome">Boticoll Sab Barr Cpo Perfumado V3 5X80G</div>
+           <div class="preco">R$ 54,90  </div>
+           <button class="btn-whats" onclick="adicionarCarrinho('Boticoll Sab Barr Cpo Perfumado V3 5X80G', 54.90)">
+    <i class="fas fa-cart-plus"></i> Adicionar ao carrinho
+        </button>
+        </a>
+       </div>
 
        <div class="produto-card">
            <span class="marca-tag">Eudora</span>
@@ -465,8 +505,20 @@
        </button>
         
               </a>
-        </div>
 
+        </div><div class="produto-card">
+          <span class="marca-tag">Eudora</span>
+          <div class="img-box">
+              <img src="https://res.cloudinary.com/beleza-na-web/image/upload/w_1500,f_auto,fl_progressive,q_auto:best/v1/imagens/product/E87257/a8880ea4-a49e-4bfe-a41c-49294244d380-e87257-instance-frutas-vermelhas-sab-liquido-400ml-1.jpg" alt="Perfume">
+          </div>
+          <div class="produto-nome">Eudora Instance Frutas Vermelhas - Sabonetelíquido Perfumado 400Ml</div>
+          <div class="preco">R$ 49,99  </div>
+          <button class="btn-whats" onclick="adicionarCarrinho('Eudora Instance Frutas Vermelhas - Sabonetelíquido Perfumado 400Ml', 49.99)">
+    <i class="fas fa-cart-plus"></i> Adicionar ao carrinho
+         </button>
+
+          </a>
+      </div>
 
       <div class="produto-card">
           <span class="marca-tag"> Eudora</span>
