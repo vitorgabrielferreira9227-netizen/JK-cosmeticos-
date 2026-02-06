@@ -7,13 +7,27 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
     <style> 
+    #finalizar {
+    display: block;
+    background: #25d366;  /* verde WhatsApp */
+    color: #ffffff;
+    text-align: center;
+    padding: 10px;
+    border-radius: 10px;
+    text-decoration: none;
+    margin-top: 10px;
+    font-weight: 600;
+}
+
         
     /* CARRINHO PADRÃO (PC) */
+/* CARRINHO PADRÃO (PC) */
 #carrinho {
     position: fixed;
     bottom: 20px;
     right: 20px;
-    background: white;
+    background: #ffffff;   /* branco no container */
+    color: #333333;        /* texto escuro */
     width: 280px;
     padding: 15px;
     border-radius: 15px;
@@ -21,6 +35,7 @@
     font-size: 0.9rem;
     z-index: 999;
 }
+
 @media (max-width: 768px) {
     #carrinho {
         left: 0;
@@ -29,6 +44,11 @@
         width: 100%;
         border-radius: 20px 20px 0 0;
         padding: 12px 15px;
+        background: #ffffff
+    }
+    body {
+        padding-bottom: 200px; 
+        
     }
 
     #lista-carrinho {
