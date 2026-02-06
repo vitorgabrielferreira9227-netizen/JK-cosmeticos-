@@ -29,12 +29,22 @@
     background: #ffffff;   /* branco no container */
     color: #333333;        /* texto escuro */
     width: 280px;
-    padding: 15px;
+    padding: 10px;
     border-radius: 15px;
     box-shadow: 0 10px 25px rgba(0,0,0,0.15);
-    font-size: 0.9rem;
+    font-size: 14px;
     z-index: 999;
 }
+@media (max-width: 600px) {
+  .produto {
+    padding: 10px;
+  }
+
+  .produto img {
+    max-width: 100px;
+  }
+}
+
 
 @media (max-width: 768px) {
     #carrinho {
@@ -214,6 +224,47 @@
             font-weight: 600;
             transition: 0.3s;
         }
+        /* ===== AJUSTE FINO DO CARRINHO (MOBILE) ===== */
+@media (max-width: 768px) {
+
+  #carrinho {
+    padding: 8px 12px;
+    font-size: 13px;
+  }
+
+  #carrinho h3 {
+    font-size: 15px;
+    margin: 4px 0;
+  }
+
+  #lista-carrinho {
+    max-height: 60px;   /* diminui a caixa da lista */
+    overflow-y: auto;
+    padding-left: 15px;
+    margin: 5px 0;
+  }
+
+  #lista-carrinho li {
+    font-size: 12px;
+    margin-bottom: 3px;
+  }
+
+  .total {
+    font-size: 14px;
+    margin: 5px 0;
+  }
+
+  #finalizar {
+    padding: 8px;
+    font-size: 13px;
+    border-radius: 8px;
+  }
+
+  body {
+    padding-bottom: 140px; /* reduz espaço vazio */
+  }
+}
+
 
         .btn-whats:hover { background-color: #128c7e; }
 
