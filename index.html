@@ -1,75 +1,82 @@
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JK Cosméticos - Catálogo</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    
-    <style> 
-    #finalizar {
-    display: block;
-    background: #25d366;  /* verde WhatsApp */
-    color: #ffffff;
-    text-align: center;
-    padding: 10px;
-    border-radius: 10px;
-    text-decoration: none;
-    margin-top: 10px;
-    font-weight: 600;
-}
 
-        
-    /* CARRINHO PADRÃO (PC) */
-/* CARRINHO PADRÃO (PC) */
-#carrinho {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background: #ffffff;   /* branco no container */
-    color: #333333;        /* texto escuro */
-    width: 280px;
-    padding: 10px;
-    border-radius: 15px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
-    font-size: 14px;
-    z-index: 999;
-}
-@media (max-width: 600px) {
-  .produto {
-    padding: 10px;
-  }
-
-  .produto img {
-    max-width: 100px;
-  }
-}
+    <style>
+        #finalizar {
+            display: block;
+            background: #25d366;
+            /* verde WhatsApp */
+            color: #ffffff;
+            text-align: center;
+            padding: 10px;
+            border-radius: 10px;
+            text-decoration: none;
+            margin-top: 10px;
+            font-weight: 600;
+        }
 
 
-@media (max-width: 768px) {
-    #carrinho {
-        left: 0;
-        right: 0;
-        bottom: 0;
-        width: 100%;
-        border-radius: 20px 20px 0 0;
-        padding: 12px 15px;
-        background: #ffffff
-    }
-    body {
-        padding-bottom: 200px; 
-        
-    }
+        /* CARRINHO PADRÃO (PC) */
+        /* CARRINHO PADRÃO (PC) */
+        #carrinho {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #ffffff;
+            /* branco no container */
+            color: #333333;
+            /* texto escuro */
+            width: 280px;
+            padding: 10px;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+            font-size: 14px;
+            z-index: 999;
+        }
 
-    #lista-carrinho {
-        max-height: 80px;
-        overflow-y: auto;
-    }
+        @media (max-width: 600px) {
+            .produto {
+                padding: 10px;
+            }
 
-    body {
-        padding-bottom: 200px; /* evita o carrinho tampar produtos */
-    }
-}
+            .produto img {
+                max-width: 100px;
+            }
+        }
+
+
+        @media (max-width: 768px) {
+            #carrinho {
+                left: 0;
+                right: 0;
+                bottom: 0;
+                width: 100%;
+                border-radius: 20px 20px 0 0;
+                padding: 12px 15px;
+                background: #ffffff
+            }
+
+            body {
+                padding-bottom: 200px;
+
+            }
+
+            #lista-carrinho {
+                max-height: 80px;
+                overflow-y: auto;
+            }
+
+            body {
+                padding-bottom: 200px;
+                /* evita o carrinho tampar produtos */
+            }
+        }
 
 
         :root {
@@ -95,7 +102,7 @@
             justify-content: center;
             gap: 20px;
             flex-wrap: wrap;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
         }
 
         .btn-catalogo {
@@ -108,12 +115,20 @@
             display: flex;
             align-items: center;
             gap: 10px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
         }
 
-        .boticario { background-color: var(--boticario); }
-        .eudora { background-color: var(--eudora); }
-        .insta { background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); }
+        .boticario {
+            background-color: var(--boticario);
+        }
+
+        .eudora {
+            background-color: var(--eudora);
+        }
+
+        .insta {
+            background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+        }
 
         .btn-catalogo:hover {
             transform: translateY(-3px);
@@ -140,9 +155,22 @@
         }
 
         @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
-            40% {transform: translateY(-10px);}
-            60% {transform: translateY(-5px);}
+
+            0%,
+            20%,
+            50%,
+            80%,
+            100% {
+                transform: translateY(0);
+            }
+
+            40% {
+                transform: translateY(-10px);
+            }
+
+            60% {
+                transform: translateY(-5px);
+            }
         }
 
         /* Grade de Produtos Dinâmica */
@@ -161,13 +189,13 @@
             overflow: hidden;
             padding: 15px;
             text-align: center;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
             transition: 0.3s;
             position: relative;
         }
 
         .produto-card:hover {
-            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
         }
 
         .img-box {
@@ -191,7 +219,7 @@
             position: absolute;
             top: 25px;
             left: 25px;
-            background: rgba(255,255,255,0.8);
+            background: rgba(255, 255, 255, 0.8);
             padding: 5px 12px;
             border-radius: 20px;
             font-size: 0.7rem;
@@ -224,69 +252,82 @@
             font-weight: 600;
             transition: 0.3s;
         }
+
         /* ===== AJUSTE FINO DO CARRINHO (MOBILE) ===== */
-@media (max-width: 768px) {
+        @media (max-width: 768px) {
 
-  #carrinho {
-    padding: 8px 12px;
-    font-size: 13px;
-  }
+            #carrinho {
+                padding: 8px 12px;
+                font-size: 13px;
+            }
 
-  #carrinho h3 {
-    font-size: 15px;
-    margin: 4px 0;
-  }
+            #carrinho h3 {
+                font-size: 15px;
+                margin: 4px 0;
+            }
 
-  #lista-carrinho {
-    max-height: 60px;   /* diminui a caixa da lista */
-    overflow-y: auto;
-    padding-left: 15px;
-    margin: 5px 0;
-  }
+            #lista-carrinho {
+                max-height: 60px;
+                /* diminui a caixa da lista */
+                overflow-y: auto;
+                padding-left: 15px;
+                margin: 5px 0;
+            }
 
-  #lista-carrinho li {
-    font-size: 12px;
-    margin-bottom: 3px;
-  }
+            #lista-carrinho li {
+                font-size: 12px;
+                margin-bottom: 3px;
+            }
 
-  .total {
-    font-size: 14px;
-    margin: 5px 0;
-  }
+            .total {
+                font-size: 14px;
+                margin: 5px 0;
+            }
 
-  #finalizar {
-    padding: 8px;
-    font-size: 13px;
-    border-radius: 8px;
-  }
+            #finalizar {
+                padding: 8px;
+                font-size: 13px;
+                border-radius: 8px;
+            }
 
-  body {
-    padding-bottom: 140px; /* reduz espaço vazio */
-  }
-}
+            body {
+                padding-bottom: 140px;
+                /* reduz espaço vazio */
+            }
+        }
 
 
-        .btn-whats:hover { background-color: #128c7e; }
+        .btn-whats:hover {
+            background-color: #128c7e;
+        }
 
-        footer { text-align: center; padding: 40px; color: #999; font-size: 0.8rem; }
+        footer {
+            text-align: center;
+            padding: 40px;
+            color: #999;
+            font-size: 0.8rem;
+        }
     </style>
 </head>
+
 <body>
 
     <!-- CARRINHO -->
-<div id="carrinho">
-  <h3>🛒 Meu Carrinho</h3>
-  <ul id="lista-carrinho"></ul>
-  <p class="total">Total: R$ <span id="total">0.00</span></p>
-  <a id="finalizar" href="#" target="_blank">Finalizar no WhatsApp</a>
-</div>
+    <div id="carrinho">
+        <h3>🛒 Meu Carrinho</h3>
+        <ul id="lista-carrinho"></ul>
+        <p class="total">Total: R$ <span id="total">0.00</span></p>
+        <a id="finalizar" href="#" target="_blank">Finalizar no WhatsApp</a>
+    </div>
 
 
     <header>
-        <a href="https://drive.google.com/file/d/1KX5CAUKiuupJO9fRhOoJ7aP_8KeFvIM6/view?usp=drive_link" class="btn-catalogo boticario">
+        <a href="https://drive.google.com/file/d/1KX5CAUKiuupJO9fRhOoJ7aP_8KeFvIM6/view?usp=drive_link"
+            class="btn-catalogo boticario">
             <i class="fas fa-leaf"></i> Catálogo Boticário
         </a>
-        <a href="https://drive.google.com/file/d/1RcFvg94ZjS_sGlsP2akrm9DwkjZLWKCI/view?usp=drive_link" class="btn-catalogo eudora">
+        <a href="https://drive.google.com/file/d/1RcFvg94ZjS_sGlsP2akrm9DwkjZLWKCI/view?usp=drive_link"
+            class="btn-catalogo eudora">
             <i class="fas fa-star"></i> Catálogo Eudora
         </a>
         <a href="https://www.instagram.com/jk.cosmeticos_?igsh=MXhyaTFyNHF0emthdA==" class="btn-catalogo insta">
@@ -300,480 +341,234 @@
     </div>
 
     <div class="container">
-        
+
 
         <div class="produto-card">
             <span class="marca-tag">O Boticário</span>
             <div class="img-box">
-                <img src="https://res.cloudinary.com/beleza-na-web/image/upload/w_1500,f_auto,fl_progressive,q_auto:best/v1/imagens/product/B57042/9b874156-e0ca-4980-b611-b6b489f1980c-bot-57042-cuide-se-bem-docura-na-pessegura-locao-hidratante-400ml-frontal-01.jpg" alt="Perfume">
+                <img src="https://res.cloudinary.com/beleza-na-web/image/upload/w_1500,f_auto,fl_progressive,q_auto:best/v1/imagens/product/B86192/264ce7cc-3fba-478a-8e4f-3550fc4027df-bot-87139-egeo-choc-kit-natal-01.jpg"
+                    alt="Perfume">
             </div>
-            <div class="produto-nome">Loção Desodorante Hidratante Cuide-Se Bem Doçura Na Pessegura 400Ml</div>
-            <div class="preco">R$ 74,90</div>
-           <button class="btn-whats" onclick="adicionarCarrinho('Loção Desodorante Hidratante Cuide-Se Bem Doçura Na Pessegura 400Ml', 74.90)">
-    <i class="fas fa-cart-plus"></i> Adicionar ao carrinho
-</button>
-
-            </a>
-        </div>
-          
-          <div class="produto-card">
-            <span class="marca-tag">O Boticário</span>
-            <div class="img-box">
-                <img src="https://res.cloudinary.com/beleza-na-web/image/upload/w_1500,f_auto,fl_progressive,q_auto:best/v1/imagens/product/B48664/d9591fe1-cb37-4d6b-872c-b594aa168677-48664-portinari-frontal.jpg" alt="Perfume">
-            </div>
-
-            <div class="produto-nome">Boticollection Portinari Desodorante Colônia 100Ml</div>
-            <div class="preco">R$ 135,90</div>
-            <button class="btn-whats" onclick="adicionarCarrinho('Boticollection Portinari Desodorante Colônia 100Ml', 135.90)">
-    <i class="fas fa-cart-plus"></i> Adicionar ao carrinho
-</button>
-
-            </a>
+            <div class="produto-nome">Egeo Choc Kit Natal</div>
+            <div class="preco">R$ 164,90 </div>
+            <button class="btn-whats" onclick="adicionarCarrinho('Egeo Choc Kit Natal', 164.90)">
+                <i class="fas fa-cart-plus"></i> Adicionar ao carrinho
+            </button>
         </div>
 
-          <div class="produto-card">
-            <span class="marca-tag">Eudora</span>
-            <div class="img-box">
-                <img src="https://res.cloudinary.com/beleza-na-web/image/upload/w_1500,f_auto,fl_progressive,q_auto:best/v1/imagens/product/E94052/4d679c03-0939-4366-8fc3-72cd2d3036be-eudora-h-energy-100ml-v2-e94052.jpg" alt="Perfume">
-            </div>
-            <div class="produto-nome">Eudora H Energy Desodorante Colônia 100ml</div>
-            <div class="preco">R$ 114,90</div>
-          <button class="btn-whats" onclick="adicionarCarrinho('Eudora H Energy Desodorante Colônia 100ml', 114.90)">
-    <i class="fas fa-cart-plus"></i> Adicionar ao carrinho
-</button>
-
-            </a>
-          </div>   
-
-          <div class="produto-card">
+         <div class="produto-card">
             <span class="marca-tag">O Boticário</span>
             <div class="img-box">
-                <img src="https://res.cloudinary.com/beleza-na-web/image/upload/w_1500,f_auto,fl_progressive,q_auto:best/v1/imagens/product/B50662/42b88ff2-868a-4670-88e6-c8023fad1bfa-bot-50662-quasar-vision-colonia-frontal-01.jpg" alt="Perfume">
-            </div>
-            <div class="produto-nome">Quasar Vision Desodorante Colônia 100ml</div>
-            <div class="preco">R$  174,90</div>
-           <button class="btn-whats" onclick="adicionarCarrinho('Quasar Vision Desodorante Colônia 100ml', 174.90)">
-    <i class="fas fa-cart-plus"></i> Adicionar ao carrinho
-</button>
-
-            </a>
-          </div>
-
-          <div class="produto-card">
-            <span class="marca-tag">O Boticário</span>
-            <div class="img-box">
-                <img src="https://res.cloudinary.com/beleza-na-web/image/upload/w_1500,f_auto,fl_progressive,q_auto:best/v1/imagens/product/B51244/89e189c7-29b3-4a61-9bb6-37dc09377d97-bot-51244-quasar-blue-colonia-frontal-01.jpg" alt="Perfume">
-            </div>
-            <div class="produto-nome">Quasar Blue Desodorante Colônia 100ml</div>
-            <div class="preco">R$ 174,90</div>
-           <button class="btn-whats" onclick="adicionarCarrinho('Quasar Blue Desodorante Colônia 100ml', 174.90)">
-    <i class="fas fa-cart-plus"></i> Adicionar ao carrinho
-</button>
-
-            </a>
-        </div>
-         
-          <div class="produto-card">
-            <span class="marca-tag">O Boticário</span>
-            <div class="img-box">
-                <img src="https://res.cloudinary.com/beleza-na-web/image/upload/w_1500,f_auto,fl_progressive,q_auto:best/v1/imagens/products/B01004/FLORATTA-DES-COL-MY-BLUE-75ml-B01004_.jpg" alt="Perfume">
+                <img src="https://res.cloudinary.com/beleza-na-web/image/upload/w_1500,f_auto,fl_progressive,q_auto:best/v1/imagens/products/B01004/FLORATTA-DES-COL-MY-BLUE-75ml-B01004_.jpg"
+                    alt="Perfume">
             </div>
             <div class="produto-nome">Floratta My Blue Desodorante Colônia 75ml</div>
-            <div class="preco">R$  164,90</div>
-           <button class="btn-whats" onclick="adicionarCarrinho('Floratta My Blue Desodorante Colônia 75ml', 164.90)">
-    <i class="fas fa-cart-plus"></i> Adicionar ao carrinho
-</button>
-            </a>
-        </div>
-
-          <div class="produto-card">
-            <span class="marca-tag">O Boticário</span>
-            <div class="img-box">
-                <img src="https://res.cloudinary.com/beleza-na-web/image/upload/w_1500,f_auto,fl_progressive,q_auto:best/v1/imagens/products/B77773/77773.jpg" alt="Perfume">
+            <div class="preco">R$ 199,90 </div>
+            <button class="btn-whats" onclick="adicionarCarrinho('Floratta My Blue Desodorante Colônia 75ml', 199.90)">
+                <i class="fas fa-cart-plus"></i> Adicionar ao carrinho
+            </button>
             </div>
-            <div class="produto-nome">Quasar Next Colônia 50Ml</div>
-            <div class="preco">R$  99,90</div>
-            <button class="btn-whats" onclick="adicionarCarrinho('Quasar Next Colônia 50Ml', 99.90)">
-    <i class="fas fa-cart-plus"></i> Adicionar ao carrinho
-</button>
 
-            </a>
-        </div>
-
-          <div class="produto-card">
+             <div class="produto-card">
             <span class="marca-tag">O Boticário</span>
             <div class="img-box">
-                <img src="https://res.cloudinary.com/beleza-na-web/image/upload/w_1500,f_auto,fl_progressive,q_auto:best/v1/imagens/product/B51500/f3858df9-73ca-477e-8cf5-efa9fe001949-bot-51500-sophie-candy-colonia-frontal-01.jpg" alt="Perfume">
+                <img src="https://res.cloudinary.com/beleza-na-web/image/upload/w_1500,f_auto,fl_progressive,q_auto:best/v1/imagens/product/B50022/e96941b2-24cc-4117-ba35-42b12a2d919a-bot-50022-her-code-perfume-edp-perfume-frontal-01.jpg"
+                    alt="Perfume">
+            </div>
+            <div class="produto-nome">Her Code Perfume EDP</div>
+            <div class="preco">R$ 199,90 </div>
+            <button class="btn-whats" onclick="adicionarCarrinho('Her Code Perfume EDP', 199.90)">
+                <i class="fas fa-cart-plus"></i> Adicionar ao carrinho
+            </button>
+            </div>
+
+<div class="produto-card">
+            <span class="marca-tag">Eudora</span>
+            <div class="img-box">
+                <img src="https://res.cloudinary.com/beleza-na-web/image/upload/w_1500,f_auto,fl_progressive,q_auto:best/v1/imagens/product/E58633/35c80941-b3ea-4490-8ba9-ae553202909d-e58633-desodorante-body-spray-1.jpg"
+                    alt="Perfume">
+            </div>
+            <div class="produto-nome">Desodorante Body Spray Eudora 100Ml</div>
+            <div class="preco">R$ 199,90 </div>
+            <button class="btn-whats" onclick="adicionarCarrinho('Desodorante Body Spray Eudora 100Ml', 199.90)">
+                <i class="fas fa-cart-plus"></i> Adicionar ao carrinho
+            </button>
+            </div>
+
+            <div class="produto-card">
+            <span class="marca-tag">O Boticário</span>
+            <div class="img-box">
+                <img src="https://res.cloudinary.com/beleza-na-web/image/upload/w_1500,f_auto,fl_progressive,q_auto:best/v1/imagens/product/B48634/c9266f95-7a04-4c77-ad49-1fc966c0906e-bot-48634-dream-amor-no-ar-body-splash-01.jpg"
+                    alt="Perfume">
+            </div>
+            <div class="produto-nome">Dream Amor no Ar Body Splash</div>
+            <div class="preco">R$ 109,90 </div>
+            <button class="btn-whats" onclick="adicionarCarrinho('Dream Amor no Ar Body Splash', 109.90)">
+                <i class="fas fa-cart-plus"></i> Adicionar ao carrinho
+            </button>
+            </div>
+
+            <div class="produto-card">
+            <span class="marca-tag">O Boticário</span>
+            <div class="img-box">
+                <img src="https://res.cloudinary.com/beleza-na-web/image/upload/w_1500,f_auto,fl_progressive,q_auto:best/v1/imagens/product/B76621/0603cb82-6189-49f8-b98d-bb1220a3bab4-bot-76621-dream-ceu-de-baunilha-body-splash-01.jpg"
+                    alt="Perfume">
+            </div>
+            <div class="produto-nome">Dream Céu de Baunilha Body Splash</div>
+            <div class="preco">R$ 109,90 </div>
+            <button class="btn-whats" onclick="adicionarCarrinho('Dream Céu de Baunilha Body Splash', 109.90)">
+                <i class="fas fa-cart-plus"></i> Adicionar ao carrinho
+            </button>
+            </div>
+
+            <div class="produto-card">
+            <span class="marca-tag">Eudora</span>
+            <div class="img-box">
+                <img src="https://res.cloudinary.com/beleza-na-web/image/upload/w_1500,f_auto,fl_progressive,q_auto:best/v1/imagens/product/E54450/b2843851-042d-47d3-8fd5-ecf77c9071bb-e54450-close-intention-des-col-100ml-frontal.jpg"
+                    alt="Perfume">
+            </div>
+            <div class="produto-nome">Close Intention Des Col 100Ml</div>
+            <div class="preco">R$  124,91</div>
+            <button class="btn-whats" onclick="adicionarCarrinho('Close Intention Des Col 100Ml', 124.91)">
+                <i class="fas fa-cart-plus"></i> Adicionar ao carrinho
+            </button>
+            </div>
+
+            <div class="produto-card">
+            <span class="marca-tag">Eudora</span>
+            <div class="img-box">
+                <img src="https://res.cloudinary.com/beleza-na-web/image/upload/w_1500,f_auto,fl_progressive,q_auto:best/v1/imagens/product/E94092/c99ee1ec-ac75-49ba-be2a-704b58f165c1-e94092-club-6-voyage-des-col-95ml-frontal.jpg"
+                    alt="Perfume">
+            </div>
+            <div class="produto-nome">Club 6 Voyage Des Col 95Ml</div>
+            <div class="preco">R$ 144,90</div>
+            <button class="btn-whats" onclick="adicionarCarrinho('Club 6 Voyage Des Col 95Ml', 144.90)">
+                <i class="fas fa-cart-plus"></i> Adicionar ao carrinho
+            </button>
+            </div>
+
+            <div class="produto-card">
+            <span class="marca-tag">O Boticário</span>
+            <div class="img-box">
+                <img src="https://res.cloudinary.com/beleza-na-web/image/upload/w_1500,f_auto,fl_progressive,q_auto:best/v1/imagens/product/B51500/f3858df9-73ca-477e-8cf5-efa9fe001949-bot-51500-sophie-candy-colonia-frontal-01.jpg"
+                    alt="Perfume">
             </div>
             <div class="produto-nome">Colônia Infantil Sophie Candy 100Ml</div>
-            <div class="preco">R$ 83,89</div>
-            <button class="btn-whats" onclick="adicionarCarrinho('Colônia Infantil Sophie Candy 100Ml', 83.89)">
-    <i class="fas fa-cart-plus"></i> Adicionar ao carrinho
-</button>
+            <div class="preco">R$  83,89</div>
+            <button class="btn-whats" onclick="adicionarCarrinho('Sophie Candy Colonia', 83.89)">
+                <i class="fas fa-cart-plus"></i> Adicionar ao carrinho
+            </button>
+            </div>
 
-            </a>
-        </div>
-          
-          <div class="produto-card">
+            <div class="produto-card">
             <span class="marca-tag">O Boticário</span>
             <div class="img-box">
-                <img src="https://res.cloudinary.com/beleza-na-web/image/upload/w_1500,f_auto,fl_progressive,q_auto:best/v1/imagens/products/B83961/BDY-SPR-ARBO_B83961_fechado.jpg">
+                <img src="https://res.cloudinary.com/beleza-na-web/image/upload/w_1500,f_auto,fl_progressive,q_auto:best/v1/imagens/product/B53460/a99f8e30-1203-443e-9dee-1d28bafb2034-bot-53460-dr-botica-pocao-amizade-colonia-frontal-01.jpg"
+                    alt="Perfume">
             </div>
-            <div class="produto-nome"> Body Spray Desodorante Arbo 100Ml</div>
-            <div class="preco">R$34,90</div>
-           <button class="btn-whats" onclick="adicionarCarrinho('Body Spray Desodorante Arbo 100Ml', 34.90)">
-    <i class="fas fa-cart-plus"></i> Adicionar ao carrinho
-</button>
+            <div class="produto-nome">Dr. Botica Pocão Amizade Colonia 100ml</div>
+            <div class="preco">R$ 96.90 </div>
+            <button class="btn-whats" onclick="adicionarCarrinho('Dr. Botica Pocão Amizade Colonia ', 96.90)">
+                <i class="fas fa-cart-plus"></i> Adicionar ao carrinho
+            </button>
+            </div>
 
-            </a>
-        </div>
+            <div class="produto-card">
+            <span class="marca-tag">Eudora</span>
+            <div class="img-box">
+                <img src="https://res.cloudinary.com/beleza-na-web/image/upload/w_1500,f_auto,fl_progressive,q_auto:best/v1/imagens/products/E12967/_E12967---EUDORA-LA-VICTORIE-CREME-ACETINADO-DESODORANTE-HIDRATANTE-CORPORAL.jpg"
+                    alt="Perfume">
+            </div>
+            <div class="produto-nome"> La Victorie Creme Acetinado Desodorante Hidratante Corporal 200ml</div>
+            <div class="preco">R$ 109,99 </div>
+            <button class="btn-whats" onclick="adicionarCarrinho('La Victorie Creme Acetinado Desodorante Hidratante Corporal 200ml', 199.90)">
+                <i class="fas fa-cart-plus"></i> Adicionar ao carrinho
+            </button>
+            </div>
 
-<div class="produto-card">
-           <span class="marca-tag">o Boticário</span>
-           <div class="img-box">
-               <img src="https://res.cloudinary.com/beleza-na-web/image/upload/w_1500,f_auto,fl_progressive,q_auto:best/v1/imagens/product/E58633/35c80941-b3ea-4490-8ba9-ae553202909d-e58633-desodorante-body-spray-1.jpg" alt="Perfume">
-           </div>
-           <div class="produto-nome">Desodorante Body Spray Eudora 100Ml</div>
-           <div class="preco">R$   44,99 </div>
-          <button class="btn-whats" onclick="adicionarCarrinho('Desodorante Body Spray Eudora 100Ml', 44.99)">
-    <i class="fas fa-cart-plus"></i> Adicionar ao carrinho
-</button>
+            <div class="produto-card">
+            <span class="marca-tag">O Boticário</span>
+            <div class="img-box">
+                <img src="https://res.cloudinary.com/beleza-na-web/image/upload/w_1500,f_auto,fl_progressive,q_auto:best/v1/imagens/products/B29226/BT_15_20_29226_.0001.preview.jpg"
+                    alt="Perfume">
+            </div>
+            <div class="produto-nome">Creme Acetinado Hidratante Desodorante Elysée, 250Ml</div>
+            <div class="preco">R$  144,90</div>
+            <button class="btn-whats" onclick="adicionarCarrinho('Creme Acetinado Hidratante Desodorante Elysée, 250Ml', 144.90)">
+                <i class="fas fa-cart-plus"></i> Adicionar ao carrinho
+            </button>
+            </div>
 
-           </a>
-       </div>
+            <div class="produto-card">
+            <span class="marca-tag">Eudora</span>
+            <div class="img-box">
+                <img src="https://res.cloudinary.com/beleza-na-web/image/upload/w_1500,f_auto,fl_progressive,q_auto:best/v1/imagens/product/E51087/087bc991-5d64-411b-afad-9c5cf342b48b-instance-creme-hidratante-refil-350ml-e51087-frontal-1.jpg"
+                    alt="Perfume">
+            </div>
+            <div class="produto-nome">Refil Creme Hidratante Desodorante Corporal Instance Frutas Vermelhas 350Ml</div>
+            <div class="preco">R$32,90</div>
+            <button class="btn-whats" onclick="adicionarCarrinho('Refil Creme Hidratante Desodorante Corporal Instance Frutas Vermelhas 350Ml', 32.90)">
+                <i class="fas fa-cart-plus"></i> Adicionar ao carrinho
+            </button>
+            </div>
 
-<div class="produto-card">
-           <span class="marca-tag">o Boticário</span>
-           <div class="img-box">
-               <img src="https://res.cloudinary.com/beleza-na-web/image/upload/w_1500,f_auto,fl_progressive,q_auto:best/v1/imagens/products/B48780/COFFEE_DES_ANT_AER_WOMAN_SEDUC_75g_V4-B48780-Frontal.jpg" alt="Perfume">
-           </div>
-           <div class="produto-nome">Desodorante Antitranspirante Aerosol Coffee Woman Seduction 75G/125Ml</div>
-           <div class="preco">R$  27,90  </div>
-          <button class="btn-whats" onclick="adicionarCarrinho('Desodorante Antitranspirante Aerosol Coffee Woman Seduction 75G/125Ml', 27.90)">
-    <i class="fas fa-cart-plus"></i> Adicionar ao carrinho
-</button>
+            <div class="produto-card">
+            <span class="marca-tag">Eudora</span>
+            <div class="img-box">
+                <img src="https://res.cloudinary.com/beleza-na-web/image/upload/w_1500,f_auto,fl_progressive,q_auto:best/v1/imagens/product/E58404/3677a14d-b781-4954-ac42-a079eb74eb30-ed-09-24-58404-la-piel-hid-desod-corporal-biosensitive-400ml-frontal.jpg"
+                    alt="Perfume">
+            </div>
+            <div class="produto-nome">La Piel Hidratante Desodorante Corporal Biosensitive 400Ml</div>
+            <div class="preco">R$ 52,90 </div>
+            <button class="btn-whats" onclick="adicionarCarrinho('La Piel Hidratante Desodorante Corporal Biosensitive 400Ml', 52.90)">
+                <i class="fas fa-cart-plus"></i> Adicionar ao carrinho
+            </button>
+            </div>
 
-           </a>
-       </div>
+            <div class="produto-card">
+            <span class="marca-tag">Eudora</span>
+            <div class="img-box">
+                <img src="https://res.cloudinary.com/beleza-na-web/image/upload/w_1500,f_auto,fl_progressive,q_auto:best/v1/imagens/products/E51746/EUD_51746_SIAGE_CAUTERIZACAO-LISOS_SHAMPOO_FRONTAL_01.jpg"
+                    alt="Perfume">
+            </div>
+            <div class="produto-nome">Shampoo Siàge Cauterização Lisos 250Ml</div>
+            <div class="preco">R$ 47,99</div>
+            <button class="btn-whats" onclick="adicionarCarrinho('Shampoo Siàge Cauterização Lisos 250Ml', 47.99)">
+                <i class="fas fa-cart-plus"></i> Adicionar ao carrinho
+            </button>
+            </div>
 
-       <div class="produto-card">
-           <span class="marca-tag"> o botícario</span>
-           <div class="img-box">
-               <img src="https://res.cloudinary.com/beleza-na-web/image/upload/w_1500,f_auto,fl_progressive,q_auto:best/v1/imagens/products/B48282/Lo%C3%A7%C3%A3o-Hidratante-Desodorante-Corporal-Nativa-SPA-Ameixa.jpg" alt="Perfume">
-           </div>
-           <div class="produto-nome">Loção Hidratante Desodorante Corporal Natura SPA Ameixa 200Ml</div>
-           <div class="preco">R$   68,90  </div>
-        <button class="btn-whats" onclick="adicionarCarrinho('Loção Hidratante Desodorante Corporal Natura SPA Ameixa 200Ml', 68.90)">
-    <i class="fas fa-cart-plus"></i> Adicionar ao carrinho
-</button>
+            <div class="produto-card">
+            <span class="marca-tag">Eudora</span>
+            <div class="img-box">
+                <img src="https://res.cloudinary.com/beleza-na-web/image/upload/w_1500,f_auto,fl_progressive,q_auto:best/v1/imagens/products/E51745/EUD_51745_SIAGE_CAUTERIZACAO-LISOS_CONDICIONADOR_FRONTAL_01.jpg"
+                    alt="Perfume">
+            </div>
+            <div class="produto-nome">Condicionador Siàge Cauterização Lisos 200Ml</div>
+            <div class="preco">R$49,99 </div>
+            <button class="btn-whats" onclick="adicionarCarrinho('Condicionador Siàge Cauterização Lisos 200Ml', 49.99)">
+                <i class="fas fa-cart-plus"></i> Adicionar ao carrinho
+            </button>
+            </div>
 
-           </a>
-       </div>
-
-       <div class="produto-card">
-           <span class="marca-tag"> Eudora</span>
-           <div class="img-box">
-               <img src="https://res.cloudinary.com/beleza-na-web/image/upload/w_1500,f_auto,fl_progressive,q_auto:best/v1/imagens/product/B51165/0da6e288-5796-4f53-b6d3-b81e37e4a1e3-bot-51165-frontal.jpg" alt="Perfume">
-           </div>
-           <div class="produto-nome">Sabonetes Cuide-Se Bem Rosa E Algodão 4X80G Cada</div>
-           <div class="preco">R$  26,90  </div>
-           <button class="btn-whats" onclick="adicionarCarrinho('Sabonetes Cuide-Se Bem Rosa E Algodão 4X80G Cada', 26.90)">
-    <i class="fas fa-cart-plus"></i> Adicionar ao carrinho
-</button>
-
-           </a>
-       </div>
-
-       <div class="produto-card">
-           <span class="marca-tag"> Eudora</span>
-           <div class="img-box">
-               <img src="https://res.cloudinary.com/beleza-na-web/image/upload/w_1500,f_auto,fl_progressive,q_auto:best/v1/imagens/product/E52381/f6ab274d-5037-4eef-917c-81728148e611-eudora-instance-cereja-amendoas-sabonete-barra-frontal-52381-1.jpg" alt="Perfume">
-           </div>
-           <div class="produto-nome">Sabonete Vegetal Em Barra Cereja Amêndoas 4x80G</div>
-           <div class="preco">R$   32,99  </div>
-           <button class="btn-whats" onclick="adicionarCarrinho('Sabonete Vegetal Em Barra Cereja Amêndoas 4x80G', 32.99)">
-    <i class="fas fa-cart-plus"></i> Adicionar ao carrinho
-</button>
-
-           </a>
-       </div>
-
-
-       <div class="produto-card">
-           <span class="marca-tag">Eudora</span>
-           <div class="img-box">
-               <img src="https://res.cloudinary.com/beleza-na-web/image/upload/w_1500,f_auto,fl_progressive,q_auto:best/v1/imagens/product/E52213/5fd68b80-04df-42c1-b09a-f576841cee81-siage-men-shampoo-crescimento-e52213.jpg" alt="Perfume">
-           </div>
-           <div class="produto-nome">Shampoo Siàge Men Estimula O Crescimento 250Ml</div>
-           <div class="preco">R$  41,99 </div>
-           <button class="btn-whats" onclick="adicionarCarrinho('Shampoo Siàge Men Estimula O Crescimento 250Ml', 41.99)">
-    <i class="fas fa-cart-plus"></i> Adicionar ao carrinho
-</button>
-
-           </a>
-       </div>
-
-        <div class="produto-card">
-           <span class="marca-tag">Eudora</span>
-           <div class="img-box">
-               <img src="https://res.cloudinary.com/beleza-na-web/image/upload/w_1500,f_auto,fl_progressive,q_auto:best/v1/imagens/product/E51087/087bc991-5d64-411b-afad-9c5cf342b48b-instance-creme-hidratante-refil-350ml-e51087-frontal-1.jpg" alt="Perfume">
-           </div>
-           <div class="produto-nome">Refil Creme Hidratante Desodorante Corporal Instance Frutas Vermelhas 350Ml</div>
-           <div class="preco">R$  32,90 </div>
-           <button class="btn-whats" onclick="adicionarCarrinho('Refil Creme Hidratante Desodorante Corporal Instance Frutas Vermelhas 350Ml', 32.90)">
-           <i class="fas fa-cart-plus"></i> Adicionar ao carrinho
-       </button>
-        
-              </a>
-
-         </div>
-         
-
-      <div class="produto-card">
-          <span class="marca-tag"> Eudora</span>
-          <div class="img-box">
-              <img src="https://res.cloudinary.com/beleza-na-web/image/upload/w_1500,f_auto,fl_progressive,q_auto:best/v1/imagens/product/E58122/d1e1ad24-fb1a-4b90-9b00-c001a33f8760-e58122-siage-finalizador-nutri-acid-complex-100ml-1.jpg" alt="Perfume">
-          </div>
-          <div class="produto-nome">Óleo Em Creme Siàge Nutri Acid.Complex 100Ml</div>
-          <div class="preco">R$ 67,99 </div>
-         <button class="btn-whats" onclick="adicionarCarrinho('Óleo Em Creme Siàge Nutri Acid.Complex 100Ml', 67.99)">
-    <i class="fas fa-cart-plus"></i> Adicionar ao carrinho
-        </button>
-
-          </a>
-      </div>
-
-      <div class="produto-card">
-          <span class="marca-tag"> Eudora</span>
-          <div class="img-box">
-              <img src="https://res.cloudinary.com/beleza-na-web/image/upload/w_1500,f_auto,fl_progressive,q_auto:best/v1/imagens/product/E58121/786c526a-72df-4e5b-87a4-d054a7037bad-e58121-siage-mascara-capilar-nutri-acid-complex-250g-1.jpg" alt="Perfume">
-          </div>
-          <div class="produto-nome">Máscara Capilar Concentrada Siàge Nutri Acid.Complex 250G</div>
-          <div class="preco">R$  69,99 </div>
-         <button class="btn-whats" onclick="adicionarCarrinho('Máscara Capilar Concentrada Siàge Nutri Acid.Complex 250G', 69.99)">
-    <i class="fas fa-cart-plus"></i> Adicionar ao carrinho
-</button>
-
-          </a>
-      </div>
-
-      <div class="produto-card">
-          <span class="marca-tag">Eudora</span>
-          <div class="img-box">
-              <img src="https://res.cloudinary.com/beleza-na-web/image/upload/w_1500,f_auto,fl_progressive,q_auto:best/v1/imagens/products/E51746/EUD_51746_SIAGE_CAUTERIZACAO-LISOS_SHAMPOO_FRONTAL_01.jpg" alt="Perfume">
-          </div>
-          <div class="produto-nome">Shampoo Siàge Cauterização Lisos 250Ml</div>
-          <div class="preco">R$ 47,99</div>
-         <button class="btn-whats" onclick="adicionarCarrinho('Shampoo Siàge Cauterização Lisos 250Ml', 47.99)">
-    <i class="fas fa-cart-plus"></i> Adicionar ao carrinho
-</button>
-
-          </a>
-      </div>
-
-       <div class="produto-card">
-          <span class="marca-tag">Eudora</span>
-          <div class="img-box">
-              <img src="https://res.cloudinary.com/beleza-na-web/image/upload/w_1500,f_auto,fl_progressive,q_auto:best/v1/imagens/products/E51745/EUD_51745_SIAGE_CAUTERIZACAO-LISOS_CONDICIONADOR_FRONTAL_01.jpg" alt="Perfume">
-          </div>
-          <div class="produto-nome">Condicionador Siàge Cauterização Lisos 200Ml</div>
-          <div class="preco">R$ 49,99</div>
-              <button class="btn-whats" onclick="adicionarCarrinho('Condicionador Siàge Cauterização Lisos 200Ml', 49.99)">
-    <i class="fas fa-cart-plus"></i> Adicionar ao carrinho
-</button>
-
-          </a>
-      </div>
+            <div class="produto-card">
+            <span class="marca-tag">Eudora</span>
+            <div class="img-box">
+                <img src="https://res.cloudinary.com/beleza-na-web/image/upload/w_1500,f_auto,fl_progressive,q_auto:best/v1/imagens/product/E52213/5fd68b80-04df-42c1-b09a-f576841cee81-siage-men-shampoo-crescimento-e52213.jpg"
+                    alt="Perfume">
+            </div>
+            <div class="produto-nome">Shampoo Siàge Men Estimula O Crescimento 250Ml</div>
+            <div class="preco">R$ 41,99</div>
+            <button class="btn-whats" onclick="adicionarCarrinho('Shampoo Siàge Men Estimula O Crescimento 250Ml', 41.99)">
+                <i class="fas fa-cart-plus"></i> Adicionar ao carrinho
+            </button>
+            </div>
 
 
-      <div class="produto-card">
-          <span class="marca-tag">o Boticário</span>
-          <div class="img-box">
-              <img src="https://res.cloudinary.com/beleza-na-web/image/upload/w_1500,f_auto,fl_progressive,q_auto:best/v1/imagens/product/B47908/f8c08d5d-0853-4ce2-9b02-dffed3299396-bot-47908-dream-viagem-encantada-splash-01.jpg" alt="Perfume">
-          </div>
-          <div class="produto-nome">Dream Viagem Encantada 100ml</div>
-          <div class="preco">R$  109,90</div>
-        <button class="btn-whats" onclick="adicionarCarrinho('Dream Viagem Encantada 100ml', 109.90)">
-  <i class="fas fa-cart-plus"></i> Adicionar ao carrinho
-</button>
-          </a>
-      </div>
-
-      <div class="produto-card">
-          <span class="marca-tag">Eudora</span>
-          <div class="img-box">
-              <img src="https://res.cloudinary.com/beleza-na-web/image/upload/w_1500,f_auto,fl_progressive,q_auto:best/v1/imagens/products/E12967/_E12967---EUDORA-LA-VICTORIE-CREME-ACETINADO-DESODORANTE-HIDRATANTE-CORPORAL.jpg" alt="Perfume">
-          </div>
-          <div class="produto-nome">La Victorie Creme Acetinado Desodorante Hidratante Corporal 200ml</div>
-          <div class="preco">R$  92,90</div>
-        <button class="btn-whats" onclick="adicionarCarrinho('La Victorie Creme Acetinado Desodorante Hidratante Corporal 200ml', 92.90)">
-  <i class="fas fa-cart-plus"></i> Adicionar ao carrinho
-</button>
-          </a>
-      </div>
-
-      <div class="produto-card">
-          <span class="marca-tag">o botícario</span>
-          <div class="img-box">
-              <img src="https://res.cloudinary.com/beleza-na-web/image/upload/w_1500,f_auto,fl_progressive,q_auto:best/v1/imagens/product/B76700/b2509b3e-56ec-4ad8-8066-0f0bf1dfe883-bt-12-20-76700.jpg" alt="Perfume">
-          </div>
-          <div class="produto-nome">Liz Desodorante Colônia 100Ml</div>
-          <div class="preco">R$ 133,90</div>
-        <button class="btn-whats" onclick="adicionarCarrinho('Liz Desodorante Colônia 100Ml', 133.90)">
-  <i class="fas fa-cart-plus"></i> Adicionar ao carrinho
-</button>
-          </a>
-      </div>
-
-      <div class="produto-card">
-          <span class="marca-tag">o botícario</span>
-          <div class="img-box">
-              <img src="https://res.cloudinary.com/beleza-na-web/image/upload/w_1500,f_auto,fl_progressive,q_auto:best/v1/imagens/products/B74103/GLAMOUR-DES-COL-SEC-BL-75ml-V4_B74103_frontal.jpg" alt="Perfume">
-          </div>
-          <div class="produto-nome">Glamour Secrets Black Desodorante Colônia 75Ml</div>
-          <div class="preco">R$ 131,90</div>
-        <button class="btn-whats" onclick="adicionarCarrinho('Glamour Secrets Black Desodorante Colônia 75Ml', 131.90)">
-  <i class="fas fa-cart-plus"></i> Adicionar ao carrinho
-</button>
-          </a>
-      </div>
 
 
-      <div class="produto-card">
-          <span class="marca-tag"> Eudora</span>
-          <div class="img-box">
-              <img src="https://res.cloudinary.com/beleza-na-web/image/upload/w_1500,f_auto,fl_progressive,q_auto:best/v1/imagens/product/E53142/b9b2e162-fd47-4c97-9636-dbd1f2272295-e53142-imensi-alive-frontal.jpg" alt="Perfume">
-          </div>
-          <div class="produto-nome">Imensi Alive Desodorante Colônia 100ml</div>
-          <div class="preco">R$ 114,90</div>
-        <button class="btn-whats" onclick="adicionarCarrinho('Imensi Alive Desodorante Colônia 100ml', 114.90)">
-  <i class="fas fa-cart-plus"></i> Adicionar ao carrinho
-</button>
-          </a>
-      </div>
 
-      <div class="produto-card">
-          <span class="marca-tag">o Boticário</span>
-          <div class="img-box">
-              <img src="https://res.cloudinary.com/beleza-na-web/image/upload/w_1500,f_auto,fl_progressive,q_auto:best/v1/imagens/product/B53460/a99f8e30-1203-443e-9dee-1d28bafb2034-bot-53460-dr-botica-pocao-amizade-colonia-frontal-01.jpg" alt="Perfume">
-          </div>
-          <div class="produto-nome">Dr. Botica Pocão Amizade Colonia 100ml</div>
-          <div class="preco">R$96,90</div>
-        <button class="btn-whats" onclick="adicionarCarrinho('Dr. Botica Pocão Amizade Colonia 100ml', 96.90)">
-  <i class="fas fa-cart-plus"></i> Adicionar ao carrinho
-</button>
-          </a>
-      </div>
-
-      <div class="produto-card">
-          <span class="marca-tag"> o boticario</span>
-          <div class="img-box">
-              <img src="https://res.cloudinary.com/beleza-na-web/image/upload/w_1500,f_auto,fl_progressive,q_auto:best/v1/imagens/product/B51441/b07804ce-5394-4995-bf18-ae6809622bfa-bot-51441-dr-botica-pocao-da-forca-frontal-01.jpg" alt="Perfume">
-          </div>
-          <div class="produto-nome">Dr. Botica Pocão da Força Colonia 100ml</div>
-          <div class="preco">R$ 67,90</div>
-        <button class="btn-whats" onclick="adicionarCarrinho('Dr. Botica Pocão da Força Colonia 100ml', 67.90)">
-  <i class="fas fa-cart-plus"></i> Adicionar ao carrinho
-</button>
-          </a>
-      </div>
-
-      <div class="produto-card">
-          <span class="marca-tag"> eudora</span>
-          <div class="img-box">
-              <img src="https://res.cloudinary.com/beleza-na-web/image/upload/w_1500,f_auto,fl_progressive,q_auto:best/v1/imagens/product/E58404/3677a14d-b781-4954-ac42-a079eb74eb30-ed-09-24-58404-la-piel-hid-desod-corporal-biosensitive-400ml-frontal.jpg" alt="Perfume">
-          </div>
-          <div class="produto-nome">La Piel Hid Desod Corporal Biosensitive 400ml</div>
-          <div class="preco">R$ 52,90</div>
-        <button class="btn-whats" onclick="adicionarCarrinho('La Piel Hid Desod Corporal Biosensitive 400ml', 52.90)">
-  <i class="fas fa-cart-plus"></i> Adicionar ao carrinho
-</button>
-          </a>
-      </div>
-
-
-      <div class="produto-card">
-          <span class="marca-tag"> o Boticário</span>
-          <div class="img-box">
-              <img src="https://res.cloudinary.com/beleza-na-web/image/upload/w_1500,f_auto,fl_progressive,q_auto:best/v1/imagens/product/B52004/66bb64b0-5f58-4c8f-a0df-7e8018ac17eb-bot-52004-nativa-spa-creme-hidratante-corporal-400ml-frontal-01.jpg" alt="Perfume">
-          </div>
-          <div class="produto-nome">Nativa Spa Creme Hidratante Corporal 400ml</div>
-          <div class="preco">R$ 59,90</div>
-        <button class="btn-whats" onclick="adicionarCarrinho('Nativa Spa Creme Hidratante Corporal 400ml', 59.90)">
-  <i class="fas fa-cart-plus"></i> Adicionar ao carrinho
-</button>
-          </a>
-      </div>
-
-      <div class="produto-card">
-          <span class="marca-tag"> o Boticário</span>
-          <div class="img-box">
-              <img src="https://res.cloudinary.com/beleza-na-web/image/upload/w_1500,f_auto,fl_progressive,q_auto:best/v1/imagens/product/B50022/e96941b2-24cc-4117-ba35-42b12a2d919a-bot-50022-her-code-perfume-edp-perfume-frontal-01.jpg" alt="Perfume">
-          </div>
-          <div class="produto-nome">Her Code Perfume Edp 50ml</div>
-          <div class="preco">R$ 199,91</div>
-        <button class="btn-whats" onclick="adicionarCarrinho('Her Code Perfume Edp 50ml', 199.91)">
-  <i class="fas fa-cart-plus"></i> Adicionar ao carrinho
-</button>
-          </a>
-      </div>
-
-      <div class="produto-card">
-          <span class="marca-tag"> o Boticário</span>
-          <div class="img-box">
-              <img src="https://res.cloudinary.com/beleza-na-web/image/upload/w_1500,f_auto,fl_progressive,q_auto:best/v1/imagens/product/B86983/466ed1af-6516-4103-9f60-3bda2ade9a4d-bot-86983-her-code-climax-eau-de-parfum-01.jpg" alt="Perfume">
-          </div>
-          <div class="produto-nome">Her Code Clímax Eau De Parfum 50Ml</div>
-          <div class="preco">R$ 199,91</div>
-        <button class="btn-whats" onclick="adicionarCarrinho('Her Code Clímax Eau De Parfum 50Ml', 199.91)">
-  <i class="fas fa-cart-plus"></i> Adicionar ao carrinho
-</button>
-          </a>
-      </div>
-
-      <div class="produto-card">
-          <span class="marca-tag"> o Boticário</span>
-          <div class="img-box">
-              <img src="https://res.cloudinary.com/beleza-na-web/image/upload/w_1500,f_auto,fl_progressive,q_auto:best/v1/imagens/product/B86192/264ce7cc-3fba-478a-8e4f-3550fc4027df-bot-87139-egeo-choc-kit-natal-01.jpg" alt="Perfume">
-          </div>
-          <div class="produto-nome">Egeo Choc Kit Natal</div>
-          <div class="preco">R$199,90</div>
-        <button class="btn-whats" onclick="adicionarCarrinho('Egeo Choc Kit Natal', 199.90)">
-  <i class="fas fa-cart-plus"></i> Adicionar ao carrinho
-</button>
-          </a>
-      </div>
-
-      <div class="produto-card">
-          <span class="marca-tag"> o Boticário</span>
-          <div class="img-box">
-              <img src="https://res.cloudinary.com/beleza-na-web/image/upload/w_1500,f_auto,fl_progressive,q_auto:best/v1/imagens/product/B86180/03f5bb53-09ad-48ec-a91a-2c5990f87b15-bot-86180-egeo-dolce-kit-natal-01.jpg" alt="Perfume">
-          </div>
-          <div class="produto-nome">Egeo Dolce Kit Natal</div>
-          <div class="preco">R$179,90</div>
-        <button class="btn-whats" onclick="adicionarCarrinho('Egeo Dolce Kit Natal', 179.90)">
-  <i class="fas fa-cart-plus"></i> Adicionar ao carrinho
-</button>
-          </a>
-      </div>
-
-      <div class="produto-card">
-          <span class="marca-tag"> o Boticário</span>
-          <div class="img-box">
-              <img src="https://res.cloudinary.com/beleza-na-web/image/upload/w_1500,f_auto,fl_progressive,q_auto:best/v1/imagens/product/B88924/5909eabc-24de-4151-b79b-1f6e4e3c8f16-bot-88924-floratta-gold-kit-natal-01.jpg" alt="Perfume">
-          </div>
-          <div class="produto-nome">Floratta Gold Kit Natal</div>
-          <div class="preco">R$ 169,90</div>
-        <button class="btn-whats" onclick="adicionarCarrinho('Floratta Gold Kit Natal', 169.90)">
-  <i class="fas fa-cart-plus"></i> Adicionar ao carrinho
-</button>
-          </a>
-      </div>
-
-    
-      
- 
-</body>
+            </body>
 <script>
 let carrinho = [];
 let total = 0;
