@@ -320,20 +320,16 @@
         <a id="finalizar" href="#" target="_blank">Finalizar no WhatsApp</a>
     </div>
 
-
-    <header>
-        <a href="https://drive.google.com/file/d/1KX5CAUKiuupJO9fRhOoJ7aP_8KeFvIM6/view?usp=drive_link"
-            class="btn-catalogo boticario">
-            <i class="fas fa-leaf"></i> Catálogo Boticário
-        </a>
-        <a href="https://drive.google.com/file/d/1RcFvg94ZjS_sGlsP2akrm9DwkjZLWKCI/view?usp=drive_link"
-            class="btn-catalogo eudora">
-            <i class="fas fa-star"></i> Catálogo Eudora
-        </a>
-        <a href="https://www.instagram.com/jk.cosmeticos_?igsh=MXhyaTFyNHF0emthdA==" class="btn-catalogo insta">
-            <i class="fab fa-instagram"></i> Instagram
-        </a>
-    </header>
+<header>
+    <a href="#" class="btn-catalogo boticario"><i class="fas fa-leaf"></i> Boticário</a>
+    <a href="#" class="btn-catalogo eudora"><i class="fas fa-star"></i> Eudora</a>
+    <a href="#" class="btn-catalogo qdb" style="background-color: #e30613;"><i class="fas fa-heart"></i> QDB</a>
+    <a href="#" class="btn-catalogo oui" style="background-color: #1a1a1a;"><i class="fas fa-gem"></i> O.U.i</a>
+    
+    <a href="https://www.instagram.com/jk.cosmeticos_/" class="btn-catalogo insta">
+        <i class="fab fa-instagram"></i> Instagram
+    </a>
+</header>
 
     <div class="chamada">
         <h2>Produtos a pronta entrega</h2>
@@ -377,31 +373,49 @@ function atualizarCarrinho() {
     finalizar.href = "https://wa.me/5567999999999?text=" + mensagem;
 }
 
-const URL =  "https://sheetdb.io/api/v1/53lc2lf6id1xw";
+const URL = "https://sheetdb.io/api/v1/86pdt6zfjio7a";
+
 fetch(URL)
 .then(res => res.json())
 .then(data => {
     const container = document.getElementById("produtos");
+    container.innerHTML = ""; 
 
+    // --- ATUALIZA OS 4 LINKS DOS BOTÕES AUTOMATICAMENTE ---
+    if(data[0]) {
+        if(data[0].link_boticario) document.querySelector('.boticario').href = data[0].link_boticario;
+        if(data[0].link_eudora) document.querySelector('.eudora').href = data[0].link_eudora;
+        if(data[0].link_qdb) document.querySelector('.qdb').href = data[0].link_qdb;
+        if(data[0].link_oui) document.querySelector('.oui').href = data[0].link_oui;
+    }
+
+    // --- CARREGA OS PRODUTOS ---
     data.forEach(produto => {
+        if(!produto.nome) return; // Ignora linhas vazias
+
+        let precoTexto = produto.preco ? produto.preco.toString().replace(',', '.') : "0";
+        let precoLimpo = parseFloat(precoTexto);
+
         const card = document.createElement("div");
         card.className = "produto-card";
-
         card.innerHTML = `
-            <span class="marca-tag">${produto.marca}</span>
+            <span class="marca-tag">${produto.marca || 'Pronta Entrega'}</span>
             <div class="img-box">
-                <img src="${produto.imagem}">
+                <img src="${produto.imagem}" onerror="this.src='https://via.placeholder.com/150?text=Sem+Foto'">
             </div>
-            <div class="produto-nome">${produto.nome}</div>
-            <div class="preco">R$ ${parseFloat(produto.preco).toFixed(2)}</div>
-       <button class="btn-whats" onclick='adicionarCarrinho(${JSON.stringify(produto.nome)}, ${produto.preco})'>
-                <i class="fas fa-cart-plus"></i> Adicionar ao carrinho
+            <div class="produto-nome"><strong>${produto.nome}</strong></div>
+            <div class="preco">R$ ${precoLimpo.toFixed(2)}</div>
+            <button class="btn-whats" onclick="adicionarCarrinho('${produto.nome.replace(/'/g, "")}', ${precoLimpo})">
+                <i class="fas fa-cart-plus"></i> Adicionar
             </button>
         `;
-
         container.appendChild(card);
     });
-});
+})
+.catch(err => console.error("Erro ao conectar com a planilha:", err));
+        container.appendChild(card);
+
+
 </script>
 
 </html>
