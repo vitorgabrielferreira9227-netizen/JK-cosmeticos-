@@ -1,421 +1,576 @@
+<!DOCTYPE html>
 <html lang="pt-br">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JK Cosméticos - Catálogo</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
     <style>
-        #finalizar {
-            display: block;
-            background: #25d366;
-            /* verde WhatsApp */
-            color: #ffffff;
-            text-align: center;
-            padding: 10px;
-            border-radius: 10px;
-            text-decoration: none;
-            margin-top: 10px;
-            font-weight: 600;
+        :root{
+            --rosa:#c2185b;
+            --rosa-escuro:#970b46;
+            --rosa-claro:#fff5fa;
+            --verde:#2e7d32;
+            --verde-claro:#eaf7eb;
+            --vermelho:#ef3434;
+            --cinza:#666;
+            --borda:#f0d7e2;
+            --branco:#fff;
+            --fundo:#fff8fc;
         }
 
+        *{box-sizing:border-box}
 
-        /* CARRINHO PADRÃO (PC) */
-        /* CARRINHO PADRÃO (PC) */
-        #carrinho {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background: #ffffff;
-            /* branco no container */
-            color: #333333;
-            /* texto escuro */
-            width: 280px;
-            padding: 10px;
-            border-radius: 15px;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
-            font-size: 14px;
-            z-index: 999;
+        html{scroll-behavior:smooth}
+
+        body{
+            margin:0;
+            font-family:'Poppins',sans-serif;
+            background:var(--fundo);
+            color:#444;
         }
 
-        @media (max-width: 600px) {
-            .produto {
-                padding: 10px;
+        /* TOPO */
+        header{
+            background:#fff;
+            padding:20px 25px;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            gap:12px;
+            flex-wrap:wrap;
+            box-shadow:0 3px 15px rgba(0,0,0,.06);
+            position:sticky;
+            top:0;
+            z-index:100;
+        }
+
+        .btn-catalogo{
+            text-decoration:none;
+            color:#fff;
+            padding:11px 19px;
+            border-radius:25px;
+            font-size:14px;
+            font-weight:600;
+            display:flex;
+            align-items:center;
+            gap:8px;
+            transition:.2s;
+        }
+
+        .btn-catalogo:hover{
+            transform:translateY(-2px);
+            filter:brightness(1.08);
+        }
+
+        .boticario{background:#3a5a40}
+        .eudora{background:#4a1533}
+        .qdb{background:#e30613}
+        .oui{background:#1a1a1a}
+        .insta{background:linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888)}
+
+        /* CHAMADA */
+        .hero{
+            text-align:center;
+            padding:30px 20px 18px;
+        }
+
+        .hero h1{
+            margin:0 0 7px;
+            color:var(--rosa);
+            font-size:28px;
+        }
+
+        .hero p{
+            margin:0;
+            color:#777;
+            font-size:15px;
+        }
+
+        .estoque-aviso{
+            max-width:915px;
+            margin:0 auto 28px;
+            background:var(--verde-claro);
+            border-left:5px solid var(--verde);
+            padding:15px 18px;
+            border-radius:4px;
+            font-size:14px;
+            color:#444;
+        }
+
+        /* PRODUTOS */
+        .container{
+            max-width:980px;
+            margin:0 auto;
+            padding:0 0 110px;
+            display:grid;
+            grid-template-columns:repeat(3,1fr);
+            gap:24px;
+        }
+
+        .produto-card{
+            background:#fff;
+            border-radius:14px;
+            border-top:4px solid var(--rosa);
+            padding:16px 20px 20px;
+            box-shadow:0 5px 18px rgba(70,20,50,.09);
+            transition:.2s;
+            min-width:0;
+        }
+
+        .produto-card:hover{
+            transform:translateY(-3px);
+            box-shadow:0 10px 24px rgba(70,20,50,.13);
+        }
+
+        .img-box{
+            width:100%;
+            height:185px;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            margin-bottom:10px;
+            background:#fff;
+            border-radius:10px;
+            overflow:hidden;
+        }
+
+        .img-box img{
+            width:100%;
+            height:100%;
+            object-fit:contain;
+        }
+
+        .marca-tag{
+            display:inline-block;
+            font-size:11px;
+            color:#fff;
+            background:var(--rosa);
+            padding:4px 10px;
+            border-radius:15px;
+            margin-bottom:8px;
+        }
+
+        .produto-nome{
+            color:var(--rosa);
+            font-size:16px;
+            font-weight:600;
+            line-height:1.55;
+            min-height:50px;
+        }
+
+        .avaliacao{
+            margin:8px 0;
+            color:#ffb400;
+            font-size:14px;
+        }
+
+        .avaliacao span{
+            color:#ff9800;
+        }
+
+        .descricao{
+            color:#666;
+            font-size:14px;
+            line-height:1.7;
+            min-height:68px;
+            margin-bottom:8px;
+        }
+
+        .preco-antigo{
+            color:#999;
+            text-decoration:line-through;
+            font-size:13px;
+            margin:4px 0;
+        }
+
+        .preco{
+            color:var(--verde);
+            font-size:20px;
+            font-weight:700;
+            margin:2px 0 9px;
+            display:flex;
+            align-items:center;
+            flex-wrap:wrap;
+            gap:9px;
+        }
+
+        .desconto{
+            background:var(--vermelho);
+            color:#fff;
+            font-size:11px;
+            padding:4px 9px;
+            border-radius:14px;
+            font-weight:600;
+        }
+
+        .disponivel{
+            display:inline-block;
+            background:#4caf50;
+            color:#fff;
+            padding:5px 11px;
+            border-radius:18px;
+            font-size:12px;
+            font-weight:600;
+            margin-bottom:12px;
+        }
+
+        .btn-whats{
+            width:100%;
+            border:0;
+            cursor:pointer;
+            background:#25d366;
+            color:#fff;
+            padding:11px;
+            border-radius:10px;
+            font-family:inherit;
+            font-size:14px;
+            font-weight:600;
+            transition:.2s;
+        }
+
+        .btn-whats:hover{
+            background:#128c7e;
+            transform:translateY(-1px);
+        }
+
+        /* CARRINHO */
+        #carrinho{
+            position:fixed;
+            right:20px;
+            bottom:20px;
+            width:285px;
+            background:#fff;
+            color:#333;
+            padding:13px 15px;
+            border-radius:15px;
+            box-shadow:0 10px 30px rgba(0,0,0,.18);
+            z-index:999;
+            border:1px solid #eee;
+        }
+
+        #carrinho h3{
+            margin:0 0 7px;
+            font-size:16px;
+            color:var(--rosa);
+        }
+
+        #lista-carrinho{
+            max-height:115px;
+            overflow-y:auto;
+            margin:5px 0;
+            padding-left:19px;
+            font-size:12px;
+        }
+
+        #lista-carrinho li{margin-bottom:4px}
+
+        .total{
+            font-weight:700;
+            margin:8px 0;
+        }
+
+        #finalizar{
+            display:block;
+            background:#25d366;
+            color:#fff;
+            text-align:center;
+            padding:10px;
+            border-radius:9px;
+            text-decoration:none;
+            font-weight:600;
+            font-size:13px;
+        }
+
+        #finalizar.desativado{
+            opacity:.55;
+            pointer-events:none;
+        }
+
+        footer{
+            background:#9b0750;
+            color:#fff;
+            text-align:center;
+            padding:24px 15px;
+            font-size:13px;
+            line-height:1.8;
+        }
+
+        .carregando{
+            grid-column:1/-1;
+            text-align:center;
+            padding:50px;
+            color:#888;
+        }
+
+        .erro{
+            grid-column:1/-1;
+            text-align:center;
+            padding:30px;
+            color:#b00020;
+            background:#fff;
+            border-radius:12px;
+        }
+
+        @media(max-width:850px){
+            .container{
+                grid-template-columns:repeat(2,1fr);
+                padding-left:15px;
+                padding-right:15px;
+            }
+        }
+
+        @media(max-width:600px){
+            header{
+                position:relative;
+                padding:14px 10px;
             }
 
-            .produto img {
-                max-width: 100px;
-            }
-        }
-
-
-        @media (max-width: 768px) {
-            #carrinho {
-                left: 0;
-                right: 0;
-                bottom: 0;
-                width: 100%;
-                border-radius: 20px 20px 0 0;
-                padding: 12px 15px;
-                background: #ffffff
+            .btn-catalogo{
+                padding:9px 13px;
+                font-size:12px;
             }
 
-            body {
-                padding-bottom: 200px;
-
+            .hero{
+                padding:24px 15px 15px;
             }
 
-            #lista-carrinho {
-                max-height: 80px;
-                overflow-y: auto;
+            .hero h1{font-size:22px}
+
+            .container{
+                grid-template-columns:1fr;
+                gap:17px;
             }
 
-            body {
-                padding-bottom: 200px;
-                /* evita o carrinho tampar produtos */
-            }
-        }
-
-
-        :root {
-            --boticario: #3a5a40;
-            --eudora: #4a1533;
-            --bg-body: #f4f7f6;
-            --white: #ffffff;
-        }
-
-        body {
-            font-family: 'Poppins', sans-serif;
-            background-color: var(--bg-body);
-            margin: 0;
-            padding: 0;
-            color: #333;
-        }
-
-        /* Topo Estilo Canva / JK */
-        header {
-            background: var(--white);
-            padding: 30px 20px;
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            flex-wrap: wrap;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
-        }
-
-        .btn-catalogo {
-            text-decoration: none;
-            padding: 12px 25px;
-            border-radius: 50px;
-            font-weight: 600;
-            color: var(--white);
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-        }
-
-        .boticario {
-            background-color: var(--boticario);
-        }
-
-        .eudora {
-            background-color: var(--eudora);
-        }
-
-        .insta {
-            background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
-        }
-
-        .btn-catalogo:hover {
-            transform: translateY(-3px);
-            filter: brightness(1.2);
-        }
-
-        /* Seção de Chamada */
-        .chamada {
-            text-align: center;
-            padding: 40px 20px;
-        }
-
-        .chamada h2 {
-            font-weight: 300;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            margin-bottom: 10px;
-        }
-
-        .seta-animada {
-            font-size: 2.5rem;
-            color: #999;
-            animation: bounce 2s infinite;
-        }
-
-        @keyframes bounce {
-
-            0%,
-            20%,
-            50%,
-            80%,
-            100% {
-                transform: translateY(0);
+            .produto-card{
+                padding:14px 17px 18px;
             }
 
-            40% {
-                transform: translateY(-10px);
+            .img-box{height:205px}
+
+            #carrinho{
+                left:0;
+                right:0;
+                bottom:0;
+                width:100%;
+                border-radius:18px 18px 0 0;
+                padding:8px 13px;
             }
 
-            60% {
-                transform: translateY(-5px);
-            }
-        }
-
-        /* Grade de Produtos Dinâmica */
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
-        }
-
-        .produto-card {
-            background: var(--white);
-            border-radius: 20px;
-            overflow: hidden;
-            padding: 15px;
-            text-align: center;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
-            transition: 0.3s;
-            position: relative;
-        }
-
-        .produto-card:hover {
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
-        }
-
-        .img-box {
-            width: 100%;
-            height: 250px;
-            background: #f9f9f9;
-            border-radius: 15px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 15px;
-        }
-
-        .img-box img {
-            max-width: 100%;
-            max-height: 100%;
-            object-fit: contain;
-        }
-
-        .marca-tag {
-            position: absolute;
-            top: 25px;
-            left: 25px;
-            background: rgba(255, 255, 255, 0.8);
-            padding: 5px 12px;
-            border-radius: 20px;
-            font-size: 0.7rem;
-            font-weight: bold;
-            text-transform: uppercase;
-        }
-
-        .produto-nome {
-            font-size: 1.1rem;
-            margin: 10px 0;
-            color: #444;
-            height: 2.4em;
-            overflow: hidden;
-        }
-
-        .preco {
-            font-size: 1.5rem;
-            font-weight: 600;
-            color: #222;
-            margin-bottom: 15px;
-        }
-
-        .btn-whats {
-            background-color: #25d366;
-            color: white;
-            text-decoration: none;
-            display: block;
-            padding: 12px;
-            border-radius: 12px;
-            font-weight: 600;
-            transition: 0.3s;
-        }
-
-        /* ===== AJUSTE FINO DO CARRINHO (MOBILE) ===== */
-        @media (max-width: 768px) {
-
-            #carrinho {
-                padding: 8px 12px;
-                font-size: 13px;
+            #lista-carrinho{
+                max-height:55px;
             }
 
-            #carrinho h3 {
-                font-size: 15px;
-                margin: 4px 0;
+            #carrinho h3{
+                font-size:14px;
+                margin:2px 0;
             }
 
-            #lista-carrinho {
-                max-height: 60px;
-                /* diminui a caixa da lista */
-                overflow-y: auto;
-                padding-left: 15px;
-                margin: 5px 0;
+            .total{
+                margin:4px 0;
+                font-size:13px;
             }
 
-            #lista-carrinho li {
-                font-size: 12px;
-                margin-bottom: 3px;
+            #finalizar{
+                padding:8px;
             }
 
-            .total {
-                font-size: 14px;
-                margin: 5px 0;
-            }
-
-            #finalizar {
-                padding: 8px;
-                font-size: 13px;
-                border-radius: 8px;
-            }
-
-            body {
-                padding-bottom: 140px;
-                /* reduz espaço vazio */
-            }
-        }
-
-
-        .btn-whats:hover {
-            background-color: #128c7e;
-        }
-
-        footer {
-            text-align: center;
-            padding: 40px;
-            color: #999;
-            font-size: 0.8rem;
+            body{padding-bottom:145px}
         }
     </style>
 </head>
 
 <body>
 
-    <!-- CARRINHO -->
-    <div id="carrinho">
-        <h3>🛒 Meu Carrinho</h3>
-        <ul id="lista-carrinho"></ul>
-        <p class="total">Total: R$ <span id="total">0.00</span></p>
-        <a id="finalizar" href="#" target="_blank">Finalizar no WhatsApp</a>
-    </div>
-
 <header>
     <a href="#" class="btn-catalogo boticario"><i class="fas fa-leaf"></i> Boticário</a>
     <a href="#" class="btn-catalogo eudora"><i class="fas fa-star"></i> Eudora</a>
-    <a href="#" class="btn-catalogo qdb" style="background-color: #e30613;"><i class="fas fa-heart"></i> QDB</a>
-    <a href="#" class="btn-catalogo oui" style="background-color: #1a1a1a;"><i class="fas fa-gem"></i> O.U.i</a>
-    
-    <a href="https://www.instagram.com/jk.cosmeticos_/" class="btn-catalogo insta">
+    <a href="#" class="btn-catalogo qdb"><i class="fas fa-heart"></i> QDB</a>
+    <a href="#" class="btn-catalogo oui"><i class="fas fa-gem"></i> O.U.i</a>
+    <a href="https://www.instagram.com/jk.cosmeticos_/" target="_blank" class="btn-catalogo insta">
         <i class="fab fa-instagram"></i> Instagram
     </a>
 </header>
 
-    <div class="chamada">
-        <h2>Produtos a pronta entrega</h2>
-        <div class="seta-animada"><i class="fas fa-chevron-down"></i></div>
-    </div>
+<section class="hero">
+    <h1>Produtos a pronta entrega</h1>
+    <p>Escolha seus produtos e monte seu pedido 🛍️</p>
+</section>
 
-    <div class="container" id="produtos"></div>
+<div class="estoque-aviso">
+    📦 Todos os produtos abaixo estão disponíveis em estoque — envio imediato!
+</div>
 
-            </body>
+<main class="container" id="produtos">
+    <div class="carregando">Carregando produtos...</div>
+</main>
+
+<div id="carrinho">
+    <h3>🛒 Meu Carrinho</h3>
+    <ul id="lista-carrinho"></ul>
+    <p class="total">Total: R$ <span id="total">0,00</span></p>
+    <a id="finalizar" class="desativado" href="#" target="_blank">Finalizar no WhatsApp</a>
+</div>
+
+<footer>
+    © 2026 JK Cosméticos — Catálogo O Boticário | Pronta Entrega<br>
+    Contato: (XX) 9XXXX-XXXX | Atendimento de segunda a sábado
+</footer>
+
 <script>
-let carrinho = [];
-let total = 0;
+    let carrinho = [];
+    let total = 0;
 
-function adicionarCarrinho(nome, preco) {
-    carrinho.push({ nome, preco });
-    total += preco;
-    atualizarCarrinho();
-}
-
-function atualizarCarrinho() {
-    const lista = document.getElementById("lista-carrinho");
-    const totalSpan = document.getElementById("total");
-    const finalizar = document.getElementById("finalizar");
-
-    lista.innerHTML = "";
-
-    carrinho.forEach(item => {
-        const li = document.createElement("li");
-        li.textContent = `${item.nome} - R$ ${item.preco.toFixed(2)}`;
-        lista.appendChild(li);
-    });
-
-    totalSpan.textContent = total.toFixed(2);
-
-    let mensagem = "Oi! Quero comprar:%0A";
-    carrinho.forEach(item => {
-        mensagem += `- ${item.nome} (R$ ${item.preco.toFixed(2)})%0A`;
-    });
-    mensagem += `%0ATotal: R$ ${total.toFixed(2)}`;
-
-    finalizar.href = "https://wa.me/5567999999999?text=" + mensagem;
-}
-
-const URL = "https://sheetdb.io/api/v1/86pdt6zfjio7a";
-
-fetch(URL)
-.then(res => res.json())
-.then(data => {
-    const container = document.getElementById("produtos");
-    container.innerHTML = ""; 
-
-    // --- ATUALIZA OS 4 LINKS DOS BOTÕES AUTOMATICAMENTE ---
-    if(data[0]) {
-        if(data[0].link_boticario) document.querySelector('.boticario').href = data[0].link_boticario;
-        if(data[0].link_eudora) document.querySelector('.eudora').href = data[0].link_eudora;
-        if(data[0].link_qdb) document.querySelector('.qdb').href = data[0].link_qdb;
-        if(data[0].link_oui) document.querySelector('.oui').href = data[0].link_oui;
+    function adicionarCarrinho(nome, preco) {
+        carrinho.push({ nome, preco });
+        total += preco;
+        atualizarCarrinho();
     }
 
-    // --- CARREGA OS PRODUTOS ---
-    data.forEach(produto => {
-        if(!produto.nome) return; // Ignora linhas vazias
+    function atualizarCarrinho() {
+        const lista = document.getElementById("lista-carrinho");
+        const totalSpan = document.getElementById("total");
+        const finalizar = document.getElementById("finalizar");
 
-        let precoTexto = produto.preco ? produto.preco.toString().replace(',', '.') : "0";
-        let precoLimpo = parseFloat(precoTexto);
+        lista.innerHTML = "";
 
-        const card = document.createElement("div");
-        card.className = "produto-card";
-        card.innerHTML = `
-            <span class="marca-tag">${produto.marca || 'Pronta Entrega'}</span>
-            <div class="img-box">
-                <img src="${produto.imagem}" onerror="this.src='https://via.placeholder.com/150?text=Sem+Foto'">
-            </div>
-            <div class="produto-nome"><strong>${produto.nome}</strong></div>
-            <div class="preco">R$ ${precoLimpo.toFixed(2)}</div>
-            <button class="btn-whats" onclick="adicionarCarrinho('${produto.nome.replace(/'/g, "")}', ${precoLimpo})">
-                <i class="fas fa-cart-plus"></i> Adicionar
-            </button>
-        `;
-        container.appendChild(card);
-    });
-})
-.catch(err => console.error("Erro ao conectar com a planilha:", err));
-        container.appendChild(card);
+        carrinho.forEach(item => {
+            const li = document.createElement("li");
+            li.textContent = `${item.nome} - R$ ${item.preco.toFixed(2).replace(".", ",")}`;
+            lista.appendChild(li);
+        });
 
+        totalSpan.textContent = total.toFixed(2).replace(".", ",");
 
+        if (carrinho.length === 0) {
+            finalizar.classList.add("desativado");
+            finalizar.href = "#";
+            return;
+        }
+
+        let mensagem = "Oi! Quero comprar:%0A";
+
+        carrinho.forEach(item => {
+            mensagem += `- ${encodeURIComponent(item.nome)} (R$ ${item.preco.toFixed(2)})%0A`;
+        });
+
+        mensagem += `%0ATotal: R$ ${total.toFixed(2)}`;
+
+        // MANTIDO IGUAL À FUNCIONALIDADE DO SITE ATUAL
+        finalizar.href = "https://wa.me/5567999999999?text=" + mensagem;
+        finalizar.classList.remove("desativado");
+    }
+
+    const URL = "https://sheetdb.io/api/v1/86pdt6zfjio7a";
+
+    fetch(URL)
+        .then(res => {
+            if (!res.ok) throw new Error("Não foi possível acessar a planilha.");
+            return res.json();
+        })
+        .then(data => {
+            const container = document.getElementById("produtos");
+            container.innerHTML = "";
+
+            // Links dos catálogos continuam sendo controlados pela planilha
+            if (data[0]) {
+                if (data[0].link_boticario)
+                    document.querySelector(".boticario").href = data[0].link_boticario;
+
+                if (data[0].link_eudora)
+                    document.querySelector(".eudora").href = data[0].link_eudora;
+
+                if (data[0].link_qdb)
+                    document.querySelector(".qdb").href = data[0].link_qdb;
+
+                if (data[0].link_oui)
+                    document.querySelector(".oui").href = data[0].link_oui;
+            }
+
+            let quantidade = 0;
+
+            data.forEach(produto => {
+                if (!produto.nome) return;
+
+                quantidade++;
+
+                const precoLimpo = parseFloat(
+                    (produto.preco || "0").toString().replace(",", ".")
+                ) || 0;
+
+                const precoAntigo = parseFloat(
+                    (produto.preco_antigo || produto.preco_original || "").toString().replace(",", ".")
+                );
+
+                const desconto = produto.desconto
+                    ? produto.desconto.toString().replace("%", "")
+                    : "";
+
+                const avaliacao = produto.avaliacao || produto.nota || "";
+                const descricao = produto.descricao || "";
+                const marca = produto.marca || "Pronta Entrega";
+
+                const card = document.createElement("div");
+                card.className = "produto-card";
+
+                const imagem = produto.imagem || "https://via.placeholder.com/300x220?text=Sem+Foto";
+
+                card.innerHTML = `
+                    <div class="img-box">
+                        <img src="${imagem}" alt="${produto.nome}" loading="lazy"
+                             onerror="this.src='https://via.placeholder.com/300x220?text=Sem+Foto'">
+                    </div>
+
+                    <span class="marca-tag">${marca}</span>
+
+                    <div class="produto-nome">${produto.nome}</div>
+
+                    ${avaliacao ? `
+                        <div class="avaliacao">
+                            ⭐ <span>${avaliacao}</span>
+                        </div>
+                    ` : ""}
+
+                    ${descricao ? `
+                        <div class="descricao">${descricao}</div>
+                    ` : ""}
+
+                    ${!isNaN(precoAntigo) && precoAntigo > precoLimpo ? `
+                        <div class="preco-antigo">De R$ ${precoAntigo.toFixed(2).replace(".", ",")}</div>
+                    ` : ""}
+
+                    <div class="preco">
+                        Por R$ ${precoLimpo.toFixed(2).replace(".", ",")}
+                        ${desconto ? `<span class="desconto">-${desconto}%</span>` : ""}
+                    </div>
+
+                    <div class="disponivel">✔ Pronta Entrega</div>
+
+                    <button class="btn-whats">
+                        <i class="fas fa-cart-plus"></i> Adicionar
+                    </button>
+                `;
+
+                card.querySelector(".btn-whats").addEventListener("click", () => {
+                    adicionarCarrinho(produto.nome, precoLimpo);
+                });
+
+                container.appendChild(card);
+            });
+
+            if (quantidade === 0) {
+                container.innerHTML = '<div class="erro">Nenhum produto disponível no momento.</div>';
+            }
+        })
+        .catch(err => {
+            console.error("Erro ao conectar com a planilha:", err);
+            document.getElementById("produtos").innerHTML =
+                '<div class="erro">Não foi possível carregar os produtos. Verifique a conexão com a planilha.</div>';
+        });
 </script>
 
+</body>
 </html>
